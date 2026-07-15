@@ -1,0 +1,11 @@
+# Frontend
+travel-frontend/.env.local
+travel-frontend/node_modules/
+travel-frontend/.next/
+
+# Backend
+travel-backend/target/
+travel-backend/application-local.yml
+
+# OS
+.DS_Store
