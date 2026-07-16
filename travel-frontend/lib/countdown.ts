@@ -34,11 +34,3 @@ export function lifePercent(birthDate: Date, lifeExpectancy: number): number {
   return Math.min(100, Math.max(0, (livedMs / totalMs) * 100));
 }
 
-export function weeksLived(birthDate: Date): number {
-  const now = new Date();
-  return Math.floor((now.getTime() - birthDate.getTime()) / (7 * 24 * 3600 * 1000));
-}
-
-export function totalWeeks(lifeExpectancy: number): number {
-  return lifeExpectancy * 52;
-}

@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { calculateTimeRemaining, lifePercent, weeksLived, type TimeRemaining } from "@/lib/countdown";
+import { calculateTimeRemaining, lifePercent, type TimeRemaining } from "@/lib/countdown";
 import { randomQuote, type Quote } from "@/lib/quotes";
-import WeeksGrid from "./WeeksGrid";
+import LifeGrid from "./LifeGrid";
 
 interface Props {
   birthDate: string;
@@ -26,7 +26,6 @@ export default function CountdownResult({ birthDate, lifeExpectancy, onReset }: 
   const [time, setTime] = useState<TimeRemaining>(() => calculateTimeRemaining(birth, lifeExpectancy));
   const [quote] = useState<Quote>(() => randomQuote());
   const percent = lifePercent(birth, lifeExpectancy);
-  const lived = weeksLived(birth);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -139,9 +138,9 @@ export default function CountdownResult({ birthDate, lifeExpectancy, onReset }: 
         </div>
       </motion.section>
 
-      {/* Weeks grid */}
+      {/* Life calendar */}
       <div className="border-b border-white/10">
-        <WeeksGrid lived={lived} lifeExpectancy={lifeExpectancy} />
+        <LifeGrid birthDate={birth} lifeExpectancy={lifeExpectancy} />
       </div>
 
       {/* Philosophy quote */}

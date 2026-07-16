@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import InputForm from "./InputForm";
 import CountdownResult from "./CountdownResult";
+import { estimateLifeExpectancy, type HealthProfile } from "@/lib/lifeExpectancy";
 
-const STORAGE_KEY = "countdown_data";
+const STORAGE_KEY = "countdown_profile";
 
 interface SavedData {
-  birthDate: string;
+  profile: HealthProfile;
   lifeExpectancy: number;
 }
 
@@ -31,8 +32,9 @@ export default function CountdownApp() {
     setHydrated(true);
   }, []);
 
-  function handleSubmit(birthDate: string, lifeExpectancy: number) {
-    const data = { birthDate, lifeExpectancy };
+  function handleSubmit(profile: HealthProfile) {
+    const lifeExpectancy = estimateLifeExpectancy(profile).value;
+    const data = { profile, lifeExpectancy };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     setSaved(data);
     setSubmitted(true);
@@ -47,34 +49,18 @@ export default function CountdownApp() {
   if (!hydrated) return null;
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout" initial={false}>
       {submitted && saved ? (
-        <motion.div
-          key="result"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-        >
+        <motion.div key="result" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
           <CountdownResult
-            birthDate={saved.birthDate}
+            birthDate={saved.profile.birthDate}
             lifeExpectancy={saved.lifeExpectancy}
             onReset={handleReset}
           />
         </motion.div>
       ) : (
-        <motion.div
-          key="input"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <InputForm
-            onSubmit={handleSubmit}
-            defaultBirthDate={saved?.birthDate}
-            defaultLifeExpectancy={saved?.lifeExpectancy}
-          />
+        <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+          <InputForm onSubmit={handleSubmit} defaultProfile={saved?.profile} />
         </motion.div>
       )}
     </AnimatePresence>
