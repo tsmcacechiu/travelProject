@@ -25,3 +25,17 @@ export interface PageResponse<T> {
   number: number;
   size: number;
 }
+
+export interface User {
+  id: number;
+  email: string;
+  name?: string;
+  givenName?: string;
+  familyName?: string;
+  pictureUrl?: string;
+}
+
+export interface AuthResponse {
+  token: string;
+  user: User;
+}

@@ -36,3 +36,9 @@ springdoc:
     operations-sorter: alpha
   api-docs:
     path: /v3/api-docs
+
+app:
+  jwt:
+    # dev-only default; override with the JWT_SECRET env var in any real deployment
+    secret: ${JWT_SECRET:aOv3xmqK79MMBV/yYTBqFKSU48IjXpOwmCBBUJtsdrs=}
+    expiration-ms: ${JWT_EXPIRATION_MS:604800000}

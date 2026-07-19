@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import Providers from "@/components/providers/Providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className={`${geistSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-black text-white">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

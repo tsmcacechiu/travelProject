@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AuthStatus from "@/components/auth/AuthStatus";
 
 const navLinks = [
   { label: "旅遊文章", href: "/articles" },
@@ -14,18 +15,21 @@ export default function Navbar() {
         <Link href="/" className="text-xl font-bold tracking-widest text-white uppercase">
           Travel
         </Link>
-        <ul className="flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-sm font-medium tracking-wide text-white/70 transition-colors hover:text-white"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm font-medium tracking-wide text-white/70 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <AuthStatus />
+        </div>
       </nav>
     </header>
   );
