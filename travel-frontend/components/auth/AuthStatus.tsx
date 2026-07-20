@@ -21,15 +21,15 @@ export default function AuthStatus() {
         <img
           src={user.pictureUrl}
           alt={user.name ?? user.email}
-          className="h-7 w-7 rounded-full"
+          className="h-7 w-7 rounded-full ring-2 ring-orange-200"
         />
       ) : (
-        <span className="text-sm text-white/70">{user.name ?? user.email}</span>
+        <span className="text-sm text-stone-700">{user.name ?? user.email}</span>
       )}
       <button
         type="button"
         onClick={logout}
-        className="text-xs font-medium text-white/50 transition-colors hover:text-white"
+        className="text-xs font-medium text-stone-400 transition-colors hover:text-orange-600"
       >
         登出
       </button>

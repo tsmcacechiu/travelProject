@@ -30,7 +30,7 @@ export default function GoogleLoginButton() {
       type="button"
       onClick={() => login()}
       disabled={isLoading}
-      className="rounded-full border border-white/20 px-4 py-1.5 text-xs font-semibold text-white/80 transition-colors hover:bg-white/10 disabled:opacity-50"
+      className="rounded-full bg-orange-500 px-4 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
     >
       {isLoading ? "登入中…" : "使用 Google 登入"}
     </button>

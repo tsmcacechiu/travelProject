@@ -10,9 +10,12 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur-md">
+    <header className="fixed top-0 z-50 w-full border-b border-orange-100 bg-white/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-xl font-bold tracking-widest text-white uppercase">
+        <Link
+          href="/"
+          className="bg-gradient-to-r from-orange-500 to-rose-500 bg-clip-text text-xl font-bold tracking-widest text-transparent uppercase"
+        >
           Travel
         </Link>
         <div className="flex items-center gap-8">
@@ -21,7 +24,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium tracking-wide text-white/70 transition-colors hover:text-white"
+                  className="text-sm font-medium tracking-wide text-stone-600 transition-colors hover:text-orange-600"
                 >
                   {link.label}
                 </Link>
