@@ -2,13 +2,16 @@ package com.travel.auth;
 
 import com.travel.user.User;
 
+import java.time.LocalDateTime;
+
 public record UserDto(
         Long id,
         String email,
         String name,
         String givenName,
         String familyName,
-        String pictureUrl
+        String pictureUrl,
+        LocalDateTime createdAt
 ) {
     public static UserDto from(User user) {
         return new UserDto(
@@ -17,7 +20,8 @@ public record UserDto(
                 user.getName(),
                 user.getGivenName(),
                 user.getFamilyName(),
-                user.getPictureUrl()
+                user.getPictureUrl(),
+                user.getCreatedAt()
         );
     }
 }

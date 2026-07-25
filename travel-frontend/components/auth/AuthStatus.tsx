@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useAuth } from "@/components/providers/AuthProvider";
 import GoogleLoginButton from "./GoogleLoginButton";
 import GoogleLoginPlaceholder from "./GoogleLoginPlaceholder";
@@ -18,16 +19,18 @@ export default function AuthStatus() {
 
   return (
     <div className="flex items-center gap-3">
-      {user.pictureUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={user.pictureUrl}
-          alt={user.name ?? user.email}
-          className="h-7 w-7 rounded-full ring-2 ring-emerald-200"
-        />
-      ) : (
-        <span className="text-sm text-slate-700">{user.name ?? user.email}</span>
-      )}
+      <Link href="/profile" className="flex items-center gap-2">
+        {user.pictureUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={user.pictureUrl}
+            alt={user.name ?? user.email}
+            className="h-7 w-7 rounded-full ring-2 ring-emerald-200"
+          />
+        ) : (
+          <span className="text-sm text-slate-700">{user.name ?? user.email}</span>
+        )}
+      </Link>
       <button
         type="button"
         onClick={logout}
