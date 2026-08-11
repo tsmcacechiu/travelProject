@@ -27,10 +27,15 @@ public class AuthService {
         User user = userRepository.findByGoogleId(info.sub())
                 .or(() -> userRepository.findByEmail(info.email()))
                 .orElseGet(User::new);
+        boolean isNewUser = user.getId() == null;
 
         user.setGoogleId(info.sub());
         user.setEmail(info.email());
-        user.setName(info.name());
+        // Only seed the display name from Google on first sign-in — once a user has
+        // edited it via updateProfile(), later logins must not silently overwrite it.
+        if (isNewUser) {
+            user.setName(info.name());
+        }
         user.setGivenName(info.givenName());
         user.setFamilyName(info.familyName());
         user.setPictureUrl(info.picture());
@@ -44,5 +49,15 @@ public class AuthService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new NoSuchElementException("User not found: " + email));
         return UserDto.from(user);
+    }
+
+    @Transactional
+    public UserDto updateProfile(String email, UpdateProfileRequest request) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new NoSuchElementException("User not found: " + email));
+        if (request.name() != null && !request.name().isBlank()) {
+            user.setName(request.name().trim());
+        }
+        return UserDto.from(userRepository.save(user));
     }
 }

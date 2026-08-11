@@ -26,4 +26,9 @@ public class AuthController {
     public ResponseEntity<UserDto> me(Authentication authentication) {
         return ResponseEntity.ok(authService.getCurrentUser(authentication.getName()));
     }
+
+    @PutMapping("/me")
+    public ResponseEntity<UserDto> updateMe(Authentication authentication, @RequestBody UpdateProfileRequest request) {
+        return ResponseEntity.ok(authService.updateProfile(authentication.getName(), request));
+    }
 }

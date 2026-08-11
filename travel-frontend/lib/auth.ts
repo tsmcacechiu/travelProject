@@ -15,6 +15,13 @@ export function fetchCurrentUser(): Promise<User> {
   return apiFetch<User>("/api/auth/me");
 }
 
+export function updateProfile(name: string): Promise<User> {
+  return apiFetch<User>("/api/auth/me", {
+    method: "PUT",
+    body: JSON.stringify({ name }),
+  });
+}
+
 export function logout() {
   clearToken();
 }
