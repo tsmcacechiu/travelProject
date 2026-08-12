@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>泰北自然與療癒行程｜10/23–10/30 清邁 × 曼谷</title>
+<title>曼谷 × 清邁 自然療癒最終定稿總行程｜10/23–10/31</title>
 <style>
   :root{
     --deep-teal:#0f3d3e;
@@ -35,6 +35,20 @@
   }
   .spa-link:hover{ color:var(--deep-teal); }
 
+  .ext-link{
+    color:var(--terracotta);
+    font-weight:600;
+    text-decoration:underline;
+    text-decoration-color:var(--gold);
+    text-underline-offset:3px;
+    white-space:nowrap;
+  }
+  .ext-link::after{
+    content:" ↗";
+    font-size:.82em;
+  }
+  .ext-link:hover{ color:var(--deep-teal); }
+
   header.hero{
     background:
       radial-gradient(circle at 20% 20%, rgba(201,161,90,0.25), transparent 45%),
@@ -50,7 +64,7 @@
     text-transform:uppercase;
   }
   header.hero h1{
-    font-size:clamp(30px,4.5vw,48px);
+    font-size:clamp(28px,4.2vw,44px);
     margin:16px 0 10px;
   }
   header.hero .dates{
@@ -60,7 +74,7 @@
     margin-bottom:16px;
   }
   header.hero p{
-    max-width:640px;
+    max-width:660px;
     margin:0 auto;
     color:#dce9e4;
     font-size:15px;
@@ -91,8 +105,37 @@
   main{
     max-width:860px;
     margin:0 auto;
-    padding:48px 20px 40px;
+    padding:36px 20px 40px;
   }
+
+  .day-nav{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+    padding:16px 18px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:12px;
+  }
+  .day-nav-label{
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:.1em;
+    margin-right:2px;
+    white-space:nowrap;
+  }
+  .day-nav a{
+    font-size:12.5px;
+    color:var(--teal);
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:4px 11px;
+    border-radius:16px;
+    white-space:nowrap;
+  }
+  .day-nav a:hover{ background:var(--teal-soft); }
 
   section.phase{
     margin-bottom:52px;
@@ -120,10 +163,11 @@
     padding:26px 30px;
     margin-bottom:22px;
     box-shadow:0 6px 16px rgba(15,61,62,0.05);
+    scroll-margin-top:76px;
   }
   .day-card .day-title{
     display:flex;
-    align-items:baseline;
+    align-items:center;
     gap:12px;
     margin-bottom:14px;
     flex-wrap:wrap;
@@ -141,6 +185,11 @@
     margin:0;
     font-size:17px;
     color:var(--ink);
+  }
+  .day-note{
+    margin:0 0 12px;
+    color:var(--muted);
+    font-size:14.5px;
   }
   .slot{
     margin:12px 0;
@@ -207,7 +256,6 @@
     flex-shrink:0;
   }
 
-  .day-title{ align-items:center; }
   .day-icon{
     width:44px;
     height:44px;
@@ -287,14 +335,42 @@
         <path d="M6 8h12l-1 12.5H7L6 8Z"/>
       </g>
     </symbol>
+    <symbol id="icon-horse" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 21V13a5 5 0 0 1 10 0v8"/>
+      </g>
+      <g fill="currentColor" stroke="none">
+        <circle cx="7" cy="21" r="1.1"/>
+        <circle cx="9.4" cy="21" r="1.1"/>
+        <circle cx="14.6" cy="21" r="1.1"/>
+        <circle cx="17" cy="21" r="1.1"/>
+      </g>
+    </symbol>
+    <symbol id="icon-elephant" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 14c0-4.5 3-7.5 7-7.5s7 2.6 7 6.5c0 1.6-.7 2.6-.7 2.6"/>
+        <path d="M9.5 10.2c-.7 1.6-.5 3.4.4 4.6.7 1 .7 2.2-.3 3.2"/>
+        <path d="M6 15v3"/>
+        <path d="M8.6 15.3v3.2"/>
+        <path d="M15 6.7c1.8 0 3.2 1.2 3.2 3"/>
+      </g>
+      <circle cx="14.2" cy="9.6" r="0.6" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-craft" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 3 21 10l-8.5 8.5a3 3 0 0 1-2 .9H7v-3.5a3 3 0 0 1 .9-2Z"/>
+        <path d="M14 3c1 1.6 2.4 3 4 4"/>
+        <path d="M4 21c1-3 2-4.5 4-5"/>
+      </g>
+    </symbol>
   </defs>
 </svg>
 
 <header class="hero">
-  <div class="eyebrow">Northern Thailand · Nature &amp; Wellness</div>
-  <h1>泰北自然與療癒行程</h1>
-  <div class="dates">2026 / 10 / 23（五）— 10 / 30（五）｜台北 ⇄ 曼谷 ⇄ 清邁</div>
-  <p>融合大自然健行、晨間瑜珈、泰式廚藝體驗、泰式按摩與身心放鬆，並安排清邁周邊小鎮一日遊，讓旅程無需頻繁搬行李。</p>
+  <div class="eyebrow">Bangkok × Chiang Mai · Nature &amp; Wellness</div>
+  <h1>曼谷 × 清邁 自然療癒最終定稿總行程</h1>
+  <div class="dates">2026 / 10 / 23（五）— 10 / 31（六）｜台北 ⇄ 曼谷 ⇄ 清邁</div>
+  <p>結合大自然健行、晨間瑜珈、泰式廚藝體驗、與大象溫柔互動、山野騎馬、竹筏漂流與泰式按摩，並安排清邁周邊秘境一日遊，讓九天的旅程步調從容、無需頻繁搬行李。</p>
 
   <svg class="hero-art" viewBox="0 0 900 210" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="450" cy="42" r="22" fill="none" stroke="#e6c98a" stroke-width="1.4" opacity="0.85"/>
@@ -325,179 +401,228 @@
 </header>
 
 <nav class="phase-nav">
-  <a href="#phase1">階段一・曼谷快閃</a>
-  <a href="#phase2">階段二・清邁與周邊</a>
-  <a href="#phase3">階段三・返回曼谷</a>
+  <a href="#phase1">階段一・抵達與清邁啟航</a>
+  <a href="#phase2">階段二・自然療癒與動物互動</a>
+  <a href="#phase3">階段三・返曼谷與輕鬆返台</a>
   <a href="spa.html">🌿 清邁 SPA 推薦</a>
 </nav>
 
 <main>
 
-  <section class="phase" id="phase1">
-    <h2><span class="tag">Phase 01</span><span class="phase-head"><svg class="phase-icon"><use href="#icon-flight"/></svg>曼谷快閃落腳</span></h2>
+  <div class="day-nav">
+    <span class="day-nav-label">行程總覽</span>
+    <a href="#d1023">10/23（五）</a>
+    <a href="#d1024">10/24（六）</a>
+    <a href="#d1025">10/25（日）</a>
+    <a href="#d1026">10/26（一）</a>
+    <a href="#d1027">10/27（二）</a>
+    <a href="#d1028">10/28（三）</a>
+    <a href="#d1029">10/29（四）</a>
+    <a href="#d1030">10/30（五）</a>
+    <a href="#d1031">10/31（六）</a>
+  </div>
 
-    <div class="day-card">
+  <section class="phase" id="phase1">
+    <h2><span class="tag">Phase 01</span><span class="phase-head"><svg class="phase-icon"><use href="#icon-flight"/></svg>抵達與清邁啟航</span></h2>
+
+    <div class="day-card" id="d1023">
       <div class="day-title">
         <div class="day-icon"><svg><use href="#icon-flight"/></svg></div>
         <span class="day-date">10/23（五）</span>
-        <h3>台北 ✈️ 曼谷</h3>
+        <h3>台北 ✈️ 飛抵曼谷</h3>
+      </div>
+      <div class="slot">
+        <div class="slot-label">班機</div>
+        <p>20:45 TPE ✈️ 23:30 BKK（長榮 EVA）。</p>
       </div>
       <div class="slot">
         <div class="slot-label">行程</div>
-        <p>台北 20:45 起飛，23:30 抵達曼谷 BKK。直接入飯店休息補眠，為隔天蓄積能量。</p>
+        <p>抵達曼谷後直接入住飯店休息補眠，為旅程蓄積能量。</p>
       </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="d1024">
       <div class="day-title">
         <div class="day-icon"><svg><use href="#icon-flight"/></svg></div>
         <span class="day-date">10/24（六）</span>
-        <h3>曼谷輕鬆一日遊 ✈️ 飛往清邁</h3>
+        <h3>曼谷輕鬆半日遊 ✈️ 直飛清邁</h3>
       </div>
       <div class="slot">
         <div class="slot-label">白天</div>
-        <p>曼谷市區享用精緻早午餐、去按摩放鬆，或逛逛購物中心。</p>
+        <p>在曼谷市區享用精緻早午餐、去按摩放鬆。</p>
       </div>
       <div class="slot">
         <div class="slot-label">傍晚</div>
-        <p>17:50 曼谷 BKK ✈️ 19:10 清邁 CNX。</p>
+        <p>17:50 BKK ✈️ 19:10 CNX 直飛清邁。</p>
       </div>
       <div class="slot">
         <div class="slot-label">晚上</div>
-        <p>入住清邁古城區或寧曼區飯店，順路逛逛「長康路夜市」或選間質感酒吧喝一杯。</p>
+        <p>入住清邁飯店（建議選古城區或寧曼區），晚餐逛逛長康路夜市或選間質感小酒館放鬆。</p>
       </div>
     </div>
   </section>
 
   <section class="phase" id="phase2">
-    <h2><span class="tag">Phase 02</span><span class="phase-head"><svg class="phase-icon"><use href="#icon-hike"/></svg>清邁與周邊自然體驗</span></h2>
+    <h2><span class="tag">Phase 02</span><span class="phase-head"><svg class="phase-icon"><use href="#icon-hike"/></svg>清邁深度大自然、身心療癒與動物互動</span></h2>
 
-    <div class="day-card">
+    <div class="day-card" id="d1025">
       <div class="day-title">
         <div class="day-icon"><svg><use href="#icon-cook"/></svg></div>
         <span class="day-date">10/25（日）</span>
-        <h3>古城巡禮 × 半日廚藝課 × 週日限定夜市</h3>
+        <h3>古城巡禮 × 半日泰式廚藝課 × 平價高 CP 值按摩 × 週日夜市</h3>
       </div>
       <div class="slot">
-        <div class="slot-label">上午｜泰式廚藝課</div>
-        <p>參加含「菜市場巡禮」的料理課程（如 Grandma's Home Cooking School 或 Thai Farm Cooking School），親手採摘香草、學習煮出道地的泰北金麵（Khao Soi）和冬陰功湯。</p>
+        <div class="slot-label">上午｜泰式料理課</div>
+        <p>參加含「菜市場巡禮」的料理課程（如 <a class="ext-link" href="https://www.grandmascookingschool.com/?gad_source=1&amp;gad_campaignid=23571584541&amp;gbraid=0AAAAADGQsOmWEYg9YVijFayjfpLluj5Vw&amp;gclid=CjwKCAjws_DTBhB_EiwAXZknGZTPOA4u7340MtHMmB-Og72RHVvmYNQiSI0rlzKsfvwWNJX_eDE2MxoCbcIQAvD_BwE" target="_blank" rel="noopener noreferrer">Grandma's Home Cooking School</a> 或 <a class="ext-link" href="https://www.smileorganicfarmcookingschool.com/?gad_source=1&amp;gad_campaignid=23076506093&amp;gbraid=0AAAAADOLsM-bizvGo3hupZ6hkt6AWDe1U&amp;gclid=CjwKCAjws_DTBhB_EiwAXZknGQiV-S1PtIVhSqZOKiZUDp6Y9YDqD6j73QBfdeIaq-V267Yj_Xd02hoCamEQAvD_BwE" target="_blank" rel="noopener noreferrer">Thai Farm Cooking School</a>），親手採摘香草、學習煮泰北金麵（Khao Soi）與冬陰功。</p>
       </div>
       <div class="slot">
         <div class="slot-label">下午｜美學與按摩</div>
-        <p>到「班康瓦藝術村（Baan Kang Wat）」逛逛職人手作小店、喝杯手沖咖啡。接著預約約 2 小時的傳統泰式按摩或精油
-          <a class="spa-link" href="spa.html" title="查看清邁頂級 SPA 推薦">SPA</a>。
+        <p>逛逛「<a class="ext-link" href="https://maps.app.goo.gl/wrNBuYfvK3S5yBjq8" target="_blank" rel="noopener noreferrer">班康瓦藝術村（Baan Kang Wat）</a>」職人手作小店。隨後預約平價名店（如 Lila 或 Green Bamboo）享受 2 小時泰式按摩
+          <a class="spa-link" href="spa.html" title="查看清邁平價與高價按摩推薦">SPA</a>。
         </p>
       </div>
       <div class="slot">
         <div class="slot-label">晚上｜週日步行街</div>
-        <p>逢週日絕對不能錯過清邁規模最大的「古城週日夜市」，邊吃街頭小吃邊享受街頭藝人表演。</p>
+        <p>走訪清邁規模最大的「<a class="ext-link" href="https://maps.app.goo.gl/QhHf7Xmytbox2U218" target="_blank" rel="noopener noreferrer">古城週日夜市</a>」，邊吃街頭小吃邊看表演。</p>
       </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="d1026">
       <div class="day-title">
         <div class="day-icon"><svg><use href="#icon-hotspring"/></svg></div>
         <span class="day-date">10/26（一）</span>
-        <h3>清邁後花園近郊「清道（Chiang Dao）」大自然與溫泉一日遊</h3>
+        <h3>清邁後花園秘境「Mae Kampong」古村 × 溫泉泡腳</h3>
       </div>
-      <p style="margin:0 0 12px;color:var(--muted);font-size:14.5px;">清道位於清邁北方約 1.5 小時車程，以雄偉山景、天然溫泉與石灰岩洞聞名，適合想避開人潮、親近大自然的人。</p>
       <div class="slot">
         <div class="slot-label">上午</div>
-        <p>包車或搭乘 Mini-bus 前往清道。探訪「清道石灰岩洞（Chiang Dao Cave）」與「Wat Tham Pha Phaeng（山林寺廟）」。</p>
+        <p>包車或搭乘共乘 Mini-bus 前往被原始森林包圍的百年古村「美康邦（Mae Kampong）」。沿著溪谷步道健行、探訪瀑布。</p>
       </div>
       <div class="slot">
         <div class="slot-label">中午</div>
-        <p>在星空露營風格的景觀咖啡廳（如 Chiang Dao Nest）享用午餐，遠眺泰國第三高峰清道山。</p>
+        <p>在著名的懸崖咖啡館（Teddu Coffee）邊聽溪水聲邊享用早午餐與咖啡。</p>
       </div>
       <div class="slot">
         <div class="slot-label">下午</div>
-        <p>體驗「清道露天天然溫泉（Chiang Dao Hot Spring）」，在溪流與森林圍繞下泡腳放鬆。</p>
+        <p>下山途中停靠「San Kamphaeng 天然溫泉」，體驗溫泉水煮蛋，並坐在溪流般的天然溫泉渠邊泡腳放鬆。</p>
       </div>
       <div class="slot">
         <div class="slot-label">傍晚</div>
-        <p>返回清邁市區，晚餐安排享用泰北傳統 Khan Tok 帝王餐並觀賞傳統舞蹈。</p>
+        <p>約 16:30 返回清邁市區休息，晚餐後安排輕鬆的足部按摩。</p>
       </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="d1027">
       <div class="day-title">
-        <div class="day-icon"><svg><use href="#icon-hike"/></svg></div>
+        <div class="day-icon"><svg><use href="#icon-horse"/></svg></div>
         <span class="day-date">10/27（二）</span>
-        <h3>晨間瑜珈 × 素帖山（Doi Suthep）瀑布健行</h3>
+        <h3>晨間瑜珈 × 素帖山僧侶步道健行 × 山野森林騎馬</h3>
       </div>
       <div class="slot">
-        <div class="slot-label">早晨｜大自然瑜珈</div>
-        <p>參加「Wild Rose Yoga」或「Mahasiddha Yoga」的晨間瑜珈課程，在木造高腳屋或花園中伸展身心。</p>
+        <div class="slot-label">早晨（08:30–10:00）</div>
+        <p>在花園工作室（如 Wild Rose Yoga）參加 90 分鐘晨間流動瑜珈，伸展身心。</p>
       </div>
       <div class="slot">
-        <div class="slot-label">上午｜僧侶步道健行</div>
-        <p>前往「Wat Pha Lat（帕拉寺）」。這是一座隱身在自然森林與溪流邊的古寺，沿著經典的「Wat Pha Lat Hike (Monk's Trail)」健行約 45–60 分鐘即可抵達，非常幽靜且運動量適中。</p>
+        <div class="slot-label">上午（10:30–12:30）</div>
+        <p>前往素帖山，沿著經典的「Monk's Trail（僧侶步道）」健行 45–60 分鐘，探訪隱身在雨林與溪流邊的古寺「Wat Pha Lat（帕拉寺）」。</p>
+      </div>
+      <div class="slot">
+        <div class="slot-label">中午</div>
+        <p>在素帖山腳下的森林景觀餐廳享用午餐。</p>
+      </div>
+      <div class="slot">
+        <div class="slot-label">下午（14:30–16:30）</div>
+        <p>前往山腳馬場（如 Chiang Mai Horse Riding），由教練帶領騎馬穿越森林、農田與小溪流（體驗馬匹涉水渡溪）。</p>
+      </div>
+      <div class="slot">
+        <div class="slot-label">晚上</div>
+        <p>享用泰北精緻料理，隨後安排草本藥包或頌缽音療深層放鬆。</p>
+      </div>
+    </div>
+
+    <div class="day-card" id="d1028">
+      <div class="day-title">
+        <div class="day-icon"><svg><use href="#icon-elephant"/></svg></div>
+        <span class="day-date">10/28（三）</span>
+        <h3>大象自然保護區（Elephant Nature Park / Chai Lai Orchid）+ 溪流竹筏漂流</h3>
+      </div>
+      <div class="slot">
+        <div class="slot-label">08:30–15:30</div>
+        <p>前往友善大象保護區（不騎大象、不看表演），換上少數民族服飾餵食大象香蕉與竹子。中午在河畔享用午餐，下午陪大象在溪流洗澡潑水，隨後體驗清涼的溪流竹筏漂流（Bamboo Rafting）！</p>
+      </div>
+      <div class="slot">
+        <div class="slot-label">傍晚／晚上</div>
+        <p>返回清邁市區，享用泰北傳統帝王餐（Khan Tok）並觀賞傳統舞蹈表演。</p>
+      </div>
+    </div>
+
+    <div class="day-card" id="d1029">
+      <div class="day-title">
+        <div class="day-icon"><svg><use href="#icon-craft"/></svg></div>
+        <span class="day-date">10/29（四）</span>
+        <h3>短期工藝手作／心靈體驗 × 寧曼路慢生活</h3>
+      </div>
+      <div class="slot">
+        <div class="slot-label">上午</div>
+        <p>參加一日／半日短期體驗課程（如：藍染 Indigo Dyeing 工作坊、泰式香氛或草本藥包 DIY）。</p>
       </div>
       <div class="slot">
         <div class="slot-label">下午</div>
-        <p>前往雙龍寺俯瞰清邁全景，隨後前往精緻的草本頌缽或熱石按摩（如
-          <a class="spa-link" href="spa.html" title="查看清邁頂級 SPA 推薦">Fah Lanna Spa</a> 或 Zabb Spa）。</p>
-      </div>
-    </div>
-
-    <div class="day-card">
-      <div class="day-title">
-        <div class="day-icon"><svg><use href="#icon-village"/></svg></div>
-        <span class="day-date">10/28（三）</span>
-        <h3>美康邦（Mae Kampong）山谷一日遊 OR 短期工藝／療癒體驗</h3>
+        <p>到寧曼路（Nimman）選間漂亮的綠意咖啡館喝手沖咖啡，並預約 2 小時高質感
+          <a class="spa-link" href="spa.html" title="查看清邁高價位質感 SPA 推薦">SPA</a>（如 Fah Lanna 或 Kiyora）徹底紓壓。
+        </p>
       </div>
       <div class="slot">
-        <div class="slot-label">選項 A｜山谷秘境一日遊</div>
-        <p>前往位於山谷中的百年古村「Mae Kampong」，村落被原始森林包圍，氣候涼爽。可沿溪谷步道健行、探訪瀑布，並在懸崖咖啡館 Teddu Coffee 享受森林浴。</p>
-      </div>
-      <div class="slot">
-        <div class="slot-label">選項 B｜短期手作／心靈課程</div>
-        <p>留在市區參加一日體驗，例如：藍染（Indigo Dyeing）工作坊、泰式香氛與草本藥包製作，或頌缽音療體驗（Sound Bath）。</p>
+        <div class="slot-label">晚上</div>
+        <p>享用在清邁最後一晚的浪漫燭光或河畔晚餐。</p>
       </div>
     </div>
   </section>
 
   <section class="phase" id="phase3">
-    <h2><span class="tag">Phase 03</span><span class="phase-head"><svg class="phase-icon"><use href="#icon-gift"/></svg>返回曼谷與返台</span></h2>
+    <h2><span class="tag">Phase 03</span><span class="phase-head"><svg class="phase-icon"><use href="#icon-gift"/></svg>返曼谷與輕鬆返台</span></h2>
 
-    <div class="day-card">
+    <div class="day-card" id="d1030">
       <div class="day-title">
-        <div class="day-icon"><svg><use href="#icon-spa"/></svg></div>
-        <span class="day-date">10/29（四）</span>
-        <h3>清邁 ✈️ 曼谷</h3>
+        <div class="day-icon"><svg><use href="#icon-flight"/></svg></div>
+        <span class="day-date">10/30（五）</span>
+        <h3>清邁 ✈️ 飛回曼谷</h3>
       </div>
       <div class="slot">
-        <div class="slot-label">上午</div>
-        <p>10:10 CNX ✈️ BKK 返回曼谷。</p>
+        <div class="slot-label">上午／中午</div>
+        <p>搭機返回曼谷（班機時間可彈性選擇）。</p>
       </div>
       <div class="slot">
         <div class="slot-label">下午</div>
-        <p>入住曼谷市區飯店，安排去曼谷頂級 SPA（如 Divana 或 Let's Relax）享用頂級按摩，放鬆連日健行的肌肉。</p>
+        <p>入住曼谷市區飯店，預約曼谷頂級 SPA（如 Divana 或 Let's Relax）享用頂級療程。</p>
       </div>
       <div class="slot">
         <div class="slot-label">晚上</div>
-        <p>安排到湄南河畔景觀餐廳用餐，或去高空酒吧（Rooftop Bar）欣賞曼谷夜景。</p>
+        <p>安排前往湄南河畔景觀餐廳，或去高空酒吧（Rooftop Bar）欣賞曼谷夜景。</p>
       </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="d1031">
       <div class="day-title">
         <div class="day-icon"><svg><use href="#icon-gift"/></svg></div>
-        <span class="day-date">10/30（五）</span>
-        <h3>曼谷最後巡禮 ✈️ 返台</h3>
+        <span class="day-date">10/31（六）</span>
+        <h3>曼谷市區最後巡禮 ✈️ 滿載而歸返台</h3>
       </div>
       <div class="slot">
         <div class="slot-label">白天</div>
-        <p>買伴手禮（Big C、Jodd Fairs 或文創百貨 IconSiam），搭乘晚班機或依你的正式機票時間返回台灣。</p>
+        <p>到 IconSiam 或 Jodd Fairs 採買伴手禮與泰國零食。</p>
+      </div>
+      <div class="slot">
+        <div class="slot-label">傍晚／晚上</div>
+        <p>前往機場，搭乘晚班機返回台灣，結束療癒滿滿的泰國之旅！</p>
       </div>
     </div>
   </section>
 
   <div class="highlights">
     <h2>💡 旅程亮點與建議</h2>
-    <div class="item"><b>交通規劃：</b>清邁市區內建議直接使用 Grab / Bolt App 叫車，方便且價格透明；前往「清道 (Chiang Dao)」或「Mae Kampong」建議提前預約包車一日遊，時間安排最自由。</div>
-    <div class="item"><b>課程預約：</b>廚藝課（Thai Cooking Class）與高檔
-      <a class="spa-link" href="spa.html" title="查看清邁頂級 SPA 推薦">Spa Massage</a>
+    <div class="item"><b>交通規劃：</b>清邁市區內建議直接使用 Grab / Bolt App 叫車，方便且價格透明；前往「Mae Kampong」、素帖山、山野騎馬牧場與大象保護區，建議提前預約包車或一日遊接送，行程安排最自由。</div>
+    <div class="item"><b>提前預約：</b>泰式廚藝課、晨間瑜珈、騎馬體驗、大象保護區與高質感
+      <a class="spa-link" href="spa.html" title="查看清邁 SPA 推薦">SPA／按摩</a>
       建議在出發前 1–2 週線上預約好，熱門時段較容易客滿。
     </div>
   </div>
@@ -505,7 +630,7 @@
 </main>
 
 <footer>
-  泰北自然與療癒行程 DM ｜ 點擊行程中的 <span style="color:var(--terracotta);font-weight:700;">SPA</span> 文字可查看清邁頂級 SPA 詳細推薦與訂位資訊
+  曼谷 × 清邁 自然療癒最終定稿總行程 ｜ 點擊行程中的 <span style="color:var(--terracotta);font-weight:700;">SPA</span> 文字可查看清邁 SPA／按摩詳細推薦與訂位資訊，外部連結（↗）可查看課程官網或地圖位置
 </footer>
 
 </body>
