@@ -1049,5 +1049,20 @@
   曼谷 × 清邁 自然療癒最終定稿總行程 ｜ 點擊行程中的 <span style="color:var(--terracotta);font-weight:700;">SPA</span> 文字可查看清邁 SPA／按摩詳細推薦與訂位資訊，外部連結（↗）可查看課程官網或地圖位置
 </footer>
 
+<script>
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px' });
+  document.querySelectorAll('.rv').forEach(function (el, i) {
+    el.style.transitionDelay = (i % 3) * 55 + 'ms';
+    io.observe(el);
+  });
+</script>
+
 </body>
 </html>
