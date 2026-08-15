@@ -1,492 +1,640 @@
-<!DOCTYPE html>
+Mae Kampong<!doctype html>
 <html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>清邁＋拜縣 SPA／按摩推薦｜輕鬆版｜逛完就去躺平</title>
-<style>
-  :root{
-    --cream:#fff8ef;
-    --paper:#ffffff;
-    --ink:#3a2e28;
-    --muted:#8a7b70;
-    --coral:#ff7a5c;
-    --coral-deep:#e85f42;
-    --coral-soft:#ffe4dc;
-    --mint:#2bb3a3;
-    --mint-soft:#e0f7f2;
-    --sun:#ffc93c;
-    --sun-soft:#fff3d1;
-    --purple:#8b6fd6;
-    --purple-soft:#efe9fb;
-    --line:#f0e4d6;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",-apple-system,sans-serif;
-    background:var(--cream);
-    color:var(--ink);
-    line-height:1.75;
-  }
-  a{ color:inherit; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>清邁＋拜縣 SPA／按摩推薦｜輕鬆版｜逛完就去躺平</title>
+    <style>
+      :root {
+        --cream: #fff8ef;
+        --paper: #ffffff;
+        --ink: #3a2e28;
+        --muted: #8a7b70;
+        --coral: #ff7a5c;
+        --coral-deep: #e85f42;
+        --coral-soft: #ffe4dc;
+        --mint: #2bb3a3;
+        --mint-soft: #e0f7f2;
+        --sun: #ffc93c;
+        --sun-soft: #fff3d1;
+        --purple: #8b6fd6;
+        --purple-soft: #efe9fb;
+        --line: #f0e4d6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          'PingFang TC',
+          'Microsoft JhengHei',
+          'Noto Sans TC',
+          -apple-system,
+          sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        line-height: 1.75;
+      }
+      a {
+        color: inherit;
+      }
 
-  .top-nav{
-    background:var(--paper);
-    padding:14px 24px;
-    border-bottom:2px dashed var(--line);
-  }
-  .top-nav a{
-    color:var(--coral-deep);
-    text-decoration:none;
-    font-size:14px;
-    font-weight:700;
-  }
-  .top-nav a:hover{ text-decoration:underline; }
+      .top-nav {
+        background: var(--paper);
+        padding: 14px 24px;
+        border-bottom: 2px dashed var(--line);
+      }
+      .top-nav a {
+        color: var(--coral-deep);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .top-nav a:hover {
+        text-decoration: underline;
+      }
 
-  header.hero{
-    background:linear-gradient(135deg,var(--sun-soft) 0%,var(--coral-soft) 45%,var(--mint-soft) 100%);
-    padding:56px 24px 44px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  header.hero .eyebrow{
-    display:inline-block;
-    font-size:13px;
-    font-weight:800;
-    color:#fff;
-    background:var(--coral);
-    padding:6px 18px;
-    border-radius:999px;
-    letter-spacing:.08em;
-    transform:rotate(-2deg);
-    box-shadow:0 4px 0 var(--coral-deep);
-  }
-  header.hero h1{
-    font-size:clamp(30px,5vw,44px);
-    margin:20px 0 12px;
-    color:var(--ink);
-  }
-  header.hero p{
-    color:var(--muted);
-    max-width:640px;
-    margin:0 auto;
-    font-size:15.5px;
-  }
-  .hero-emoji-row{
-    margin-top:26px;
-    font-size:34px;
-    letter-spacing:14px;
-  }
+      header.hero {
+        background: linear-gradient(
+          135deg,
+          var(--sun-soft) 0%,
+          var(--coral-soft) 45%,
+          var(--mint-soft) 100%
+        );
+        padding: 56px 24px 44px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      header.hero .eyebrow {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 800;
+        color: #fff;
+        background: var(--coral);
+        padding: 6px 18px;
+        border-radius: 999px;
+        letter-spacing: 0.08em;
+        transform: rotate(-2deg);
+        box-shadow: 0 4px 0 var(--coral-deep);
+      }
+      header.hero h1 {
+        font-size: clamp(30px, 5vw, 44px);
+        margin: 20px 0 12px;
+        color: var(--ink);
+      }
+      header.hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: 15.5px;
+      }
+      .hero-emoji-row {
+        margin-top: 26px;
+        font-size: 34px;
+        letter-spacing: 14px;
+      }
 
-  main{
-    max-width:1180px;
-    margin:0 auto;
-    padding:44px 20px 80px;
-  }
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 44px 20px 80px;
+      }
 
-  .intro{
-    background:var(--paper);
-    border:2px dashed var(--coral);
-    border-radius:20px;
-    padding:22px 26px;
-    margin-bottom:40px;
-    color:var(--ink);
-    font-size:15px;
-  }
-  .intro b{ color:var(--coral-deep); }
+      .intro {
+        background: var(--paper);
+        border: 2px dashed var(--coral);
+        border-radius: 20px;
+        padding: 22px 26px;
+        margin-bottom: 40px;
+        color: var(--ink);
+        font-size: 15px;
+      }
+      .intro b {
+        color: var(--coral-deep);
+      }
 
-  .tiers-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:0 36px;
-    align-items:start;
-  }
-  .tier-col{ min-width:0; }
-  .tier-col + .tier-col{
-    border-left:2px dashed var(--line);
-    padding-left:36px;
-  }
-  @media (max-width:820px){
-    .tiers-grid{ grid-template-columns:1fr; gap:0; }
-    .tier-col + .tier-col{ border-left:none; padding-left:0; margin-top:20px; }
-  }
+      .tiers-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 36px;
+        align-items: start;
+      }
+      .tier-col {
+        min-width: 0;
+      }
+      .tier-col + .tier-col {
+        border-left: 2px dashed var(--line);
+        padding-left: 36px;
+      }
+      @media (max-width: 820px) {
+        .tiers-grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .tier-col + .tier-col {
+          border-left: none;
+          padding-left: 0;
+          margin-top: 20px;
+        }
+      }
 
-  .section-title{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:0 0 6px;
-  }
-  .section-title h2{
-    margin:0;
-    font-size:20px;
-    color:var(--ink);
-    white-space:nowrap;
-  }
-  .section-title .tag{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.02em;
-    color:#fff;
-    background:var(--mint);
-    border-radius:999px;
-    padding:4px 14px;
-    white-space:nowrap;
-  }
-  .section-title.budget .tag{ background:var(--sun); color:#5a4200; }
-  .section-desc{
-    color:var(--muted);
-    font-size:14px;
-    margin:0 0 22px;
-  }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 6px;
+      }
+      .section-title h2 {
+        margin: 0;
+        font-size: 20px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      .section-title .tag {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #fff;
+        background: var(--mint);
+        border-radius: 999px;
+        padding: 4px 14px;
+        white-space: nowrap;
+      }
+      .section-title.budget .tag {
+        background: var(--sun);
+        color: #5a4200;
+      }
+      .section-desc {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0 0 22px;
+      }
 
-  .spa-card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:26px 26px 24px 92px;
-    margin-bottom:24px;
-    position:relative;
-    box-shadow:0 8px 0 var(--line);
-    transition:transform .15s ease;
-  }
-  .spa-card:hover{ transform:translateY(-3px); }
-  .spa-card .rank{
-    position:absolute;
-    top:22px;
-    left:22px;
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    background:var(--coral);
-    color:#fff;
-    font-weight:800;
-    font-size:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 0 var(--coral-deep);
-  }
-  .spa-card.budget .rank{
-    background:var(--mint);
-    box-shadow:0 4px 0 #1f8b7e;
-  }
-  .spa-card h2{
-    margin:0 0 8px;
-    color:var(--ink);
-    font-size:20px;
-  }
-  .spa-card .badge{
-    display:inline-block;
-    margin-bottom:14px;
-    font-size:12px;
-    font-weight:700;
-    color:var(--purple);
-    background:var(--purple-soft);
-    border-radius:999px;
-    padding:4px 12px;
-  }
-  .spa-card h3{
-    font-size:13px;
-    color:var(--coral-deep);
-    font-weight:800;
-    margin:16px 0 8px;
-  }
-  .spa-card p, .spa-card ul{
-    font-size:15px;
-    color:var(--ink);
-    margin:0 0 8px;
-  }
-  .spa-card ul{ padding-left:20px; }
-  .spa-card ul li{ margin-bottom:4px; }
-  .spa-card .location{
-    color:var(--muted);
-    font-size:13.5px;
-    margin-top:10px;
-  }
-  .spa-card .official-link{
-    display:inline-block;
-    margin-top:8px;
-    font-size:13.5px;
-    font-weight:700;
-    color:var(--mint);
-    text-decoration:none;
-  }
-  .spa-card .official-link:hover{ text-decoration:underline; }
+      .spa-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 26px 26px 24px 92px;
+        margin-bottom: 24px;
+        position: relative;
+        box-shadow: 0 8px 0 var(--line);
+        transition: transform 0.15s ease;
+      }
+      .spa-card:hover {
+        transform: translateY(-3px);
+      }
+      .spa-card .rank {
+        position: absolute;
+        top: 22px;
+        left: 22px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--coral);
+        color: #fff;
+        font-weight: 800;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 0 var(--coral-deep);
+      }
+      .spa-card.budget .rank {
+        background: var(--mint);
+        box-shadow: 0 4px 0 #1f8b7e;
+      }
+      .spa-card h2 {
+        margin: 0 0 8px;
+        color: var(--ink);
+        font-size: 20px;
+      }
+      .spa-card .badge {
+        display: inline-block;
+        margin-bottom: 14px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--purple);
+        background: var(--purple-soft);
+        border-radius: 999px;
+        padding: 4px 12px;
+      }
+      .spa-card h3 {
+        font-size: 13px;
+        color: var(--coral-deep);
+        font-weight: 800;
+        margin: 16px 0 8px;
+      }
+      .spa-card p,
+      .spa-card ul {
+        font-size: 15px;
+        color: var(--ink);
+        margin: 0 0 8px;
+      }
+      .spa-card ul {
+        padding-left: 20px;
+      }
+      .spa-card ul li {
+        margin-bottom: 4px;
+      }
+      .spa-card .location {
+        color: var(--muted);
+        font-size: 13.5px;
+        margin-top: 10px;
+      }
+      .spa-card .official-link {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--mint);
+        text-decoration: none;
+      }
+      .spa-card .official-link:hover {
+        text-decoration: underline;
+      }
 
-  @media (max-width:520px){
-    .spa-card{ padding-left:26px; padding-top:76px; }
-    .spa-card .rank{ position:static; margin-bottom:10px; }
-  }
+      @media (max-width: 520px) {
+        .spa-card {
+          padding-left: 26px;
+          padding-top: 76px;
+        }
+        .spa-card .rank {
+          position: static;
+          margin-bottom: 10px;
+        }
+      }
 
-  .note{
-    margin-top:44px;
-    padding:20px 24px;
-    background:var(--sun-soft);
-    border-radius:18px;
-    font-size:14px;
-    color:#5a4200;
-    border:2px dashed var(--sun);
-  }
+      .note {
+        margin-top: 44px;
+        padding: 20px 24px;
+        background: var(--sun-soft);
+        border-radius: 18px;
+        font-size: 14px;
+        color: #5a4200;
+        border: 2px dashed var(--sun);
+      }
 
-  .region-pai{
-    background:var(--mint-soft);
-    margin-top:60px;
-    padding:56px 20px 68px;
-    border-radius:32px 32px 0 0;
-  }
-  .region-pai .inner{ max-width:1180px; margin:0 auto; }
-  .region-divider{
-    text-align:center;
-    max-width:640px;
-    margin:0 auto 36px;
-  }
-  .region-divider .region-tag{
-    display:inline-block;
-    font-size:12px;
-    font-weight:800;
-    color:#fff;
-    background:var(--mint);
-    border-radius:999px;
-    padding:5px 16px;
-    margin-bottom:14px;
-    transform:rotate(2deg);
-  }
-  .region-divider h2{
-    margin:0 0 10px;
-    font-size:26px;
-    color:var(--ink);
-  }
-  .region-divider p{ color:var(--muted); font-size:14px; margin:0; }
+      .region-pai {
+        background: var(--mint-soft);
+        margin-top: 60px;
+        padding: 56px 20px 68px;
+        border-radius: 32px 32px 0 0;
+      }
+      .region-pai .inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .region-divider {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 36px;
+      }
+      .region-divider .region-tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        color: #fff;
+        background: var(--mint);
+        border-radius: 999px;
+        padding: 5px 16px;
+        margin-bottom: 14px;
+        transform: rotate(2deg);
+      }
+      .region-divider h2 {
+        margin: 0 0 10px;
+        font-size: 26px;
+        color: var(--ink);
+      }
+      .region-divider p {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0;
+      }
 
-  .pai-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-  }
-  @media (max-width:900px){
-    .pai-grid{ grid-template-columns:1fr; }
-  }
-  .spa-card.pai{
-    padding-left:26px;
-    padding-top:56px;
-  }
-  .spa-card.pai .rank{
-    position:absolute;
-    top:20px;
-    left:20px;
-    width:auto;
-    height:auto;
-    border-radius:999px;
-    padding:5px 14px;
-    background:var(--purple);
-    box-shadow:0 4px 0 #6a52ad;
-    font-size:13px;
-  }
-  .spa-card.pai h2{ font-size:18px; }
-  .spa-card.pai .badge{ background:var(--coral-soft); color:var(--coral-deep); }
-  .spa-card.pai h3{ color:var(--mint); }
-  .spa-card.pai .booking-note{
-    display:block;
-    margin-top:12px;
-    padding:10px 14px;
-    background:var(--cream);
-    border-radius:12px;
-    font-size:12.5px;
-    color:var(--muted);
-  }
+      .pai-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      @media (max-width: 900px) {
+        .pai-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .spa-card.pai {
+        padding-left: 26px;
+        padding-top: 56px;
+      }
+      .spa-card.pai .rank {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: auto;
+        height: auto;
+        border-radius: 999px;
+        padding: 5px 14px;
+        background: var(--purple);
+        box-shadow: 0 4px 0 #6a52ad;
+        font-size: 13px;
+      }
+      .spa-card.pai h2 {
+        font-size: 18px;
+      }
+      .spa-card.pai .badge {
+        background: var(--coral-soft);
+        color: var(--coral-deep);
+      }
+      .spa-card.pai h3 {
+        color: var(--mint);
+      }
+      .spa-card.pai .booking-note {
+        display: block;
+        margin-top: 12px;
+        padding: 10px 14px;
+        background: var(--cream);
+        border-radius: 12px;
+        font-size: 12.5px;
+        color: var(--muted);
+      }
 
-  footer{
-    text-align:center;
-    padding:34px 20px 54px;
-    font-size:13px;
-    color:var(--muted);
-    background:var(--mint-soft);
-  }
-  footer a{ color:var(--mint); font-weight:700; text-decoration:none; }
-  footer a:hover{ text-decoration:underline; }
-</style>
-</head>
-<body>
+      footer {
+        text-align: center;
+        padding: 34px 20px 54px;
+        font-size: 13px;
+        color: var(--muted);
+        background: var(--mint-soft);
+      }
+      footer a {
+        color: var(--mint);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="dm.html">&larr; 回泰北自然與療癒行程 DM</a>
+    </nav>
 
-<nav class="top-nav">
-  <a href="dm.html">&larr; 回泰北自然與療癒行程 DM</a>
-</nav>
+    <header class="hero">
+      <span class="eyebrow">Chiang Mai Chill Guide</span>
+      <h1>清邁 SPA／按摩推薦 🌺</h1>
+      <p>
+        10/25（週日）下午逛完「班康瓦藝術村」，該躺平了！以下整理清邁口碑超好的按摩店，依價位分成「高質感
+        SPA」跟「平價在地按摩」兩組，選一個順眼的直接訂位就對了。
+      </p>
+      <div class="hero-emoji-row">🌿🖐️🎋</div>
+    </header>
 
-<header class="hero">
-  <span class="eyebrow">Chiang Mai Chill Guide</span>
-  <h1>清邁 SPA／按摩推薦 🌺</h1>
-  <p>10/25（週日）下午逛完「班康瓦藝術村」，該躺平了！以下整理清邁口碑超好的按摩店，依價位分成「高質感 SPA」跟「平價在地按摩」兩組，選一個順眼的直接訂位就對了。</p>
-  <div class="hero-emoji-row">🌿🖐️🎋</div>
-</header>
-
-<main>
-  <div class="intro">
-    這篇分兩種等級：前面是清邁最有名的<b>高價位質感 SPA</b>，適合想被好好寵愛一下的人；後面是<b>平價在地按摩</b>，CP 值高、隨時可以殺去按。建議出發前 1–2 週先線上訂位，週日下午很搶手！
-  </div>
-
-  <div class="tiers-grid">
-  <div class="tier-col">
-  <div class="section-title">
-    <h2>💎 高價位．質感 SPA</h2>
-    <span class="tag">2 小時約 1,500 泰銖起</span>
-  </div>
-  <p class="section-desc">想被好好寵一下的話，選這三間準沒錯。</p>
-
-  <div class="spa-card">
-    <span class="rank">01</span>
-    <span class="badge">World Luxury Spa Award 得獎</span>
-    <h2>🌿 Fah Lanna Spa（華蘭納水療）</h2>
-    <p>曾獲「世界奢華 SPA 大獎」，泰北蘭納傳統木造建築配上庭園綠植，氣氛超幽靜療癒。電影《泰囧》也在這裡取景過，是清邁最有代表性的高檔 SPA 之一。</p>
-    <h3>推薦療程（2 小時）</h3>
-    <ul>
-      <li>Office Syndrome Retreat（辦公室症候群舒緩）：肩頸、背部、頭部深度放鬆。</li>
-      <li>Traditional Thai Massage（傳統泰式按摩）：被動式瑜珈拉伸＋經絡按壓。</li>
-    </ul>
-    <p class="location">📍 古城區（Old City）與寧曼區（Nimman）都有分店。</p>
-  </div>
-
-  <div class="spa-card">
-    <span class="rank">02</span>
-    <span class="badge">免費市區接送</span>
-    <h2>🏡 Kiyora Spa（奇悠拉水療）</h2>
-    <p>現代精緻＋蘭納風融合，服務超細緻，還會給客製化問卷確認力道跟加強部位。最貼心的是提供免費市區接送，逛完街直接叫車來接超方便。</p>
-    <h3>推薦療程（2 小時）</h3>
-    <ul>
-      <li>Aromatherapy Massage（芳香精油按摩）：天然有機精油，柔中帶剛，超好睡。</li>
-      <li>Thai Herbal Ball Massage（草本藥包熱敷按摩）：泰式按摩＋熱蒸草本藥包，肌肉全釋放。</li>
-    </ul>
-    <p class="location">📍 古城東側附近（靠近長康路夜市）。</p>
-  </div>
-
-  <div class="spa-card">
-    <span class="rank">03</span>
-    <span class="badge">高 CP 值老字號</span>
-    <h2>🎋 Cheeva Spa（奇瓦水療）</h2>
-    <p>清邁老字號精緻 SPA，裝潢融合竹林與水池意象。按摩師手法道地又專業，價格比前兩家更親民，CP 值超高。</p>
-    <h3>推薦療程（2 小時）</h3>
-    <ul>
-      <li>Cheeva Relief（奇瓦舒緩套餐）：泰式按摩＋草本熱敷＋足部按摩，全身放鬆。</li>
-      <li>Hot Oil Body Massage（熱油按摩）：溫熱精油推拿，不喜歡被拉筋的人首選。</li>
-    </ul>
-    <p class="location">📍 古城西北角外圍（離班康瓦藝術村約 10–15 分鐘車程）。</p>
-  </div>
-  </div>
-
-  <div class="tier-col">
-  <div class="section-title budget">
-    <h2>💰 平價．在地按摩推薦</h2>
-    <span class="tag">2 小時約 500～900 泰銖</span>
-  </div>
-  <p class="section-desc">都在古城區內，價格實惠、手法扎實，逛完街臨時想按也不用等太久。</p>
-
-  <div class="spa-card budget">
-    <span class="rank">A</span>
-    <span class="badge">更生女性培訓．社會意義</span>
-    <h2>🌸 Lila Thai Massage（麗菈泰式按摩）</h2>
-    <p>清邁最知名的平價連鎖店，創辦人曾是清邁女子監獄獄長，訓練更生女性重返社會，手法非常到位。泰北蘭納風裝潢，乾淨溫馨。</p>
-    <h3>參考價位（2 小時）</h3>
-    <ul>
-      <li>傳統泰式按摩：約 500～600 泰銖。</li>
-      <li>草本球熱敷／精油按摩：約 700～900 泰銖。</li>
-    </ul>
-    <p class="location">📍 古城區內多家分店（Prapokkloa 店、Ratchadamnoen 店），逛夜市前後都方便。</p>
-    <span class="official-link">🔗 Lila Thai Massage 官網（請自行搜尋確認網址）</span>
-  </div>
-
-  <div class="spa-card budget">
-    <span class="rank">B</span>
-    <span class="badge">天然有機．CP 值極高</span>
-    <h2>🌿 Green Bamboo Massage（綠竹按摩）</h2>
-    <p>藏在古城東門（塔佩門）附近巷弄裡，主打天然有機、環境友好，像個溫馨的泰式小庭園，按完還附草本茶，背包客超愛。</p>
-    <h3>參考價位（2 小時）</h3>
-    <ul>
-      <li>傳統泰式按摩：約 500 泰銖。</li>
-      <li>芳香精油按摩：約 700～800 泰銖。</li>
-    </ul>
-    <p class="location">📍 靠近古城東邊（Moon Muang Soi 1），離週日夜市起點不遠。</p>
-    <span class="official-link">🔗 Green Bamboo Massage 官網（請自行搜尋確認網址）</span>
-  </div>
-
-  <div class="spa-card budget">
-    <span class="rank">C</span>
-    <span class="badge">更生女性培訓．手法扎實</span>
-    <h2>💆‍♀️ Women's Massage Center by Ex-Prisoners（女子監獄按摩）</h2>
-    <p>同樣由培訓出來的女子按摩師執業，力道夠、點位準，完全是盲測不踩雷代表。沒有浮誇裝潢，成本都回饋在價格上。</p>
-    <h3>參考價位</h3>
-    <ul>
-      <li>傳統泰式按摩：2 小時約 500 泰銖（1 小時只要 250 泰銖）。</li>
-      <li>足部底穴按摩：1 小時約 250 泰銖。</li>
-    </ul>
-    <p class="location">📍 古城內數間分店（Singharat 店、Prapokkloa 店）。</p>
-    <span class="official-link">🔗 Women's Massage Center 官網（請自行搜尋確認網址）</span>
-  </div>
-  </div>
-  </div>
-
-  <div class="note">
-    💡 小提醒：高價位 SPA 建議提前預約，週日下午特別熱門；平價按摩彈性很多，現場排隊或當天訂都沒問題。不確定路怎麼走，可以請飯店櫃檯幫忙用泰文電話訂位，或直接查店家官網／社群帳號的最新價目跟空檔。
-  </div>
-</main>
-
-<section class="region-pai">
-  <div class="inner">
-    <div class="region-divider">
-      <span class="region-tag">Pai・拜縣</span>
-      <h2>🛵 拜縣 Pai 按摩／SPA 推薦</h2>
-      <p>騎車環拜縣一整天後，該讓緊繃的肩頸腰腿放個假了。以下三間都在拜縣鎮區走路就到，風格價位各不同，跟清邁的分開規劃。</p>
-    </div>
-
-    <div class="pai-grid">
-      <div class="spa-card pai">
-        <span class="rank">1</span>
-        <span class="badge">老字號．Google 4.7 星以上</span>
-        <h2>🌿 Pai Traditional Thai Massage</h2>
-        <p>拜縣鎮上老字號、評價超高的平價店，裝潢很樸實但師父手法扎實，騎完長途山路的肩頸、腰腿按得很到位。</p>
-        <h3>推薦療程</h3>
-        <ul>
-          <li>Traditional Thai Massage：1 小時約 250～300 泰銖，CP 值極高。</li>
-          <li>Herbal Compress Massage：溫熱藥包熱敷，超舒緩疲勞。</li>
-        </ul>
-        <p class="location">📍 拜縣步行街（Pai Walking Street）巷弄內。</p>
-        <span class="booking-note">🔗 通常直接走進去（Walk-in）劃位就好，傍晚熱門時段可下午先順路留名字。</span>
+    <main>
+      <div class="intro">
+        這篇分兩種等級：前面是清邁最有名的<b>高價位質感 SPA</b
+        >，適合想被好好寵愛一下的人；後面是<b>平價在地按摩</b>，CP
+        值高、隨時可以殺去按。建議出發前 1–2 週先線上訂位，週日下午很搶手！
       </div>
 
-      <div class="spa-card pai">
-        <span class="rank">2</span>
-        <span class="badge">竹林風格．質感首選</span>
-        <h2>🎋 Onthara Massage &amp; Spa</h2>
-        <p>想在拜縣體驗質感稍微高一點、環境更幽靜的 SPA，這家是首選。竹林自然風，有機精油＋舒服的私人房間，服務超溫柔細緻。</p>
-        <h3>推薦療程</h3>
-        <ul>
-          <li>Aromatherapy Oil Massage：力道適中超好睡，適合吹了一天風的人。</li>
-          <li>Foot Reflexology：走完拜縣大峽谷後按腳超爽。</li>
-        </ul>
-        <p class="location">📍 靠近拜縣鎮中心。</p>
-        <span class="booking-note">🔗 建議加店家 WhatsApp 或 Google Map 聯繫方式提前一天劃位。</span>
+      <div class="tiers-grid">
+        <div class="tier-col">
+          <div class="section-title">
+            <h2>💎 高價位．質感 SPA</h2>
+            <span class="tag">2 小時約 1,500 泰銖起</span>
+          </div>
+          <p class="section-desc">想被好好寵一下的話，選這三間準沒錯。</p>
+
+          <div class="spa-card">
+            <span class="rank">01</span>
+            <span class="badge">World Luxury Spa Award 得獎</span>
+            <h2>🌿 Fah Lanna Spa（華蘭納水療）</h2>
+            <p>
+              曾獲「世界奢華 SPA
+              大獎」，泰北蘭納傳統木造建築配上庭園綠植，氣氛超幽靜療癒。電影《泰囧》也在這裡取景過，是清邁最有代表性的高檔
+              SPA 之一。
+            </p>
+            <h3>推薦療程（2 小時）</h3>
+            <ul>
+              <li>
+                Office Syndrome
+                Retreat（辦公室症候群舒緩）：肩頸、背部、頭部深度放鬆。
+              </li>
+              <li>
+                Traditional Thai
+                Massage（傳統泰式按摩）：被動式瑜珈拉伸＋經絡按壓。
+              </li>
+            </ul>
+            <p class="location">
+              📍 古城區（Old City）與寧曼區（Nimman）都有分店。
+            </p>
+          </div>
+
+          <div class="spa-card">
+            <span class="rank">02</span>
+            <span class="badge">免費市區接送</span>
+            <h2>🏡 Kiyora Spa（奇悠拉水療）</h2>
+            <p>
+              現代精緻＋蘭納風融合，服務超細緻，還會給客製化問卷確認力道跟加強部位。最貼心的是提供免費市區接送，逛完街直接叫車來接超方便。
+            </p>
+            <h3>推薦療程（2 小時）</h3>
+            <ul>
+              <li>
+                Aromatherapy
+                Massage（芳香精油按摩）：天然有機精油，柔中帶剛，超好睡。
+              </li>
+              <li>
+                Thai Herbal Ball
+                Massage（草本藥包熱敷按摩）：泰式按摩＋熱蒸草本藥包，肌肉全釋放。
+              </li>
+            </ul>
+            <p class="location">📍 古城東側附近（靠近長康路夜市）。</p>
+          </div>
+
+          <div class="spa-card">
+            <span class="rank">03</span>
+            <span class="badge">高 CP 值老字號</span>
+            <h2>🎋 Cheeva Spa（奇瓦水療）</h2>
+            <p>
+              清邁老字號精緻
+              SPA，裝潢融合竹林與水池意象。按摩師手法道地又專業，價格比前兩家更親民，CP
+              值超高。
+            </p>
+            <h3>推薦療程（2 小時）</h3>
+            <ul>
+              <li>
+                Cheeva
+                Relief（奇瓦舒緩套餐）：泰式按摩＋草本熱敷＋足部按摩，全身放鬆。
+              </li>
+              <li>
+                Hot Oil Body
+                Massage（熱油按摩）：溫熱精油推拿，不喜歡被拉筋的人首選。
+              </li>
+            </ul>
+            <p class="location">
+              📍 古城西北角外圍（離班康瓦藝術村約 10–15 分鐘車程）。
+            </p>
+          </div>
+        </div>
+
+        <div class="tier-col">
+          <div class="section-title budget">
+            <h2>💰 平價．在地按摩推薦</h2>
+            <span class="tag">2 小時約 500～900 泰銖</span>
+          </div>
+          <p class="section-desc">
+            都在古城區內，價格實惠、手法扎實，逛完街臨時想按也不用等太久。
+          </p>
+
+          <div class="spa-card budget">
+            <span class="rank">A</span>
+            <span class="badge">更生女性培訓．社會意義</span>
+            <h2>🌸 Lila Thai Massage（麗菈泰式按摩）</h2>
+            <p>
+              清邁最知名的平價連鎖店，創辦人曾是清邁女子監獄獄長，訓練更生女性重返社會，手法非常到位。泰北蘭納風裝潢，乾淨溫馨。
+            </p>
+            <h3>參考價位（2 小時）</h3>
+            <ul>
+              <li>傳統泰式按摩：約 500～600 泰銖。</li>
+              <li>草本球熱敷／精油按摩：約 700～900 泰銖。</li>
+            </ul>
+            <p class="location">
+              📍 古城區內多家分店（Prapokkloa 店、Ratchadamnoen
+              店），逛夜市前後都方便。
+            </p>
+            <span class="official-link"
+              >🔗 Lila Thai Massage 官網（請自行搜尋確認網址）</span
+            >
+          </div>
+
+          <div class="spa-card budget">
+            <span class="rank">B</span>
+            <span class="badge">天然有機．CP 值極高</span>
+            <h2>🌿 Green Bamboo Massage（綠竹按摩）</h2>
+            <p>
+              藏在古城東門（塔佩門）附近巷弄裡，主打天然有機、環境友好，像個溫馨的泰式小庭園，按完還附草本茶，背包客超愛。
+            </p>
+            <h3>參考價位（2 小時）</h3>
+            <ul>
+              <li>傳統泰式按摩：約 500 泰銖。</li>
+              <li>芳香精油按摩：約 700～800 泰銖。</li>
+            </ul>
+            <p class="location">
+              📍 靠近古城東邊（Moon Muang Soi 1），離週日夜市起點不遠。
+            </p>
+            <span class="official-link"
+              >🔗 Green Bamboo Massage 官網（請自行搜尋確認網址）</span
+            >
+          </div>
+
+          <div class="spa-card budget">
+            <span class="rank">C</span>
+            <span class="badge">更生女性培訓．手法扎實</span>
+            <h2>💆‍♀️ Women's Massage Center by Ex-Prisoners（女子監獄按摩）</h2>
+            <p>
+              同樣由培訓出來的女子按摩師執業，力道夠、點位準，完全是盲測不踩雷代表。沒有浮誇裝潢，成本都回饋在價格上。
+            </p>
+            <h3>參考價位</h3>
+            <ul>
+              <li>傳統泰式按摩：2 小時約 500 泰銖（1 小時只要 250 泰銖）。</li>
+              <li>足部底穴按摩：1 小時約 250 泰銖。</li>
+            </ul>
+            <p class="location">
+              📍 古城內數間分店（Singharat 店、Prapokkloa 店）。
+            </p>
+            <span class="official-link"
+              >🔗 Women's Massage Center 官網（請自行搜尋確認網址）</span
+            >
+          </div>
+        </div>
       </div>
 
-      <div class="spa-card pai">
-        <span class="rank">3</span>
-        <span class="badge">高 CP 值．經絡按壓</span>
-        <h2>🌸 Hattasart Massage Pai</h2>
-        <p>「高 CP 值＋專業經絡按壓」出名，很多長住拜縣的歐美背包客跟數位遊牧者都推。按摩師抓穴位很準，深層酸痛都能釋放。</p>
-        <h3>推薦療程</h3>
-        <ul>
-          <li>Deep Tissue / Back &amp; Shoulder Massage：專治長時間騎車、背重物造成的肌肉僵硬。</li>
-        </ul>
-        <p class="location">📍 拜縣鎮區內，走路就能到。</p>
-        <span class="booking-note">🔗 建議晚上逛夜市前先去現場劃位，逛完夜市剛好進去放鬆。</span>
+      <div class="note">
+        💡 小提醒：高價位 SPA
+        建議提前預約，週日下午特別熱門；平價按摩彈性很多，現場排隊或當天訂都沒問題。不確定路怎麼走，可以請飯店櫃檯幫忙用泰文電話訂位，或直接查店家官網／社群帳號的最新價目跟空檔。
       </div>
-    </div>
-  </div>
-</section>
+    </main>
 
-<footer>
-  <a href="dm.html">&larr; 回完整行程總覽</a>
-</footer>
+    <section class="region-pai">
+      <div class="inner">
+        <div class="region-divider">
+          <span class="region-tag">Pai・拜縣</span>
+          <h2>🛵 拜縣 Pai 按摩／SPA 推薦</h2>
+          <p>
+            騎車環拜縣一整天後，該讓緊繃的肩頸腰腿放個假了。以下三間都在拜縣鎮區走路就到，風格價位各不同，跟清邁的分開規劃。
+          </p>
+        </div>
 
-</body>
+        <div class="pai-grid">
+          <div class="spa-card pai">
+            <span class="rank">1</span>
+            <span class="badge">老字號．Google 4.7 星以上</span>
+            <h2>🌿 Pai Traditional Thai Massage</h2>
+            <p>
+              拜縣鎮上老字號、評價超高的平價店，裝潢很樸實但師父手法扎實，騎完長途山路的肩頸、腰腿按得很到位。
+            </p>
+            <h3>推薦療程</h3>
+            <ul>
+              <li>
+                Traditional Thai Massage：1 小時約 250～300 泰銖，CP 值極高。
+              </li>
+              <li>Herbal Compress Massage：溫熱藥包熱敷，超舒緩疲勞。</li>
+            </ul>
+            <p class="location">📍 拜縣步行街（Pai Walking Street）巷弄內。</p>
+            <span class="booking-note"
+              >🔗
+              通常直接走進去（Walk-in）劃位就好，傍晚熱門時段可下午先順路留名字。</span
+            >
+          </div>
+
+          <div class="spa-card pai">
+            <span class="rank">2</span>
+            <span class="badge">竹林風格．質感首選</span>
+            <h2>🎋 Onthara Massage &amp; Spa</h2>
+            <p>
+              想在拜縣體驗質感稍微高一點、環境更幽靜的
+              SPA，這家是首選。竹林自然風，有機精油＋舒服的私人房間，服務超溫柔細緻。
+            </p>
+            <h3>推薦療程</h3>
+            <ul>
+              <li>
+                Aromatherapy Oil Massage：力道適中超好睡，適合吹了一天風的人。
+              </li>
+              <li>Foot Reflexology：走完拜縣大峽谷後按腳超爽。</li>
+            </ul>
+            <p class="location">📍 靠近拜縣鎮中心。</p>
+            <span class="booking-note"
+              >🔗 建議加店家 WhatsApp 或 Google Map 聯繫方式提前一天劃位。</span
+            >
+          </div>
+
+          <div class="spa-card pai">
+            <span class="rank">3</span>
+            <span class="badge">高 CP 值．經絡按壓</span>
+            <h2>🌸 Hattasart Massage Pai</h2>
+            <p>
+              「高 CP
+              值＋專業經絡按壓」出名，很多長住拜縣的歐美背包客跟數位遊牧者都推。按摩師抓穴位很準，深層酸痛都能釋放。
+            </p>
+            <h3>推薦療程</h3>
+            <ul>
+              <li>
+                Deep Tissue / Back &amp; Shoulder
+                Massage：專治長時間騎車、背重物造成的肌肉僵硬。
+              </li>
+            </ul>
+            <p class="location">📍 拜縣鎮區內，走路就能到。</p>
+            <span class="booking-note"
+              >🔗 建議晚上逛夜市前先去現場劃位，逛完夜市剛好進去放鬆。</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="dm.html">&larr; 回完整行程總覽</a>
+    </footer>
+  </body>
 </html>
