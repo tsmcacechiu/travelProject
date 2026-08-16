@@ -1,0 +1,29 @@
+/*
+ * Theme token template for a TravelDetail trip page.
+ * Copy this file into a trip folder as theme.css (the scaffold script does
+ * this automatically) and fill in destination-specific values. components.css
+ * reads only these variable names — never hardcode a color/font there.
+ */
+:root {
+  /* surfaces */
+  --bg: #faf6ee;
+  --paper: #fffdf8;
+  --line: #e3dcc9;
+
+  /* text */
+  --ink: #26312e;
+  --muted: #6b7a72;
+  --on-primary: #dce9e4; /* body text sitting on a --primary background */
+
+  /* brand */
+  --primary: #0f3d3e;      /* hero gradient start, section headings, highlights bg */
+  --primary-2: #1c5f5a;    /* hero gradient end, nav hover text */
+  --primary-soft: #e6efec; /* hover background tint */
+  --accent: #c9a15a;       /* eyebrow, borders, default day-no color, highlights heading */
+  --accent-2: #c1683f;     /* links, .chip.book, .map-link */
+  --on-accent-2: #fff;     /* text/icon color on top of an --accent-2 background */
+
+  /* type */
+  --font-heading: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+  --font-body: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+}
