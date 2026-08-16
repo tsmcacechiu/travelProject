@@ -1,0 +1,28 @@
+/*
+ * Hakuba-202701 theme: cold alpine blue (night sky over the Northern Alps
+ * snowfields) with a warm amber accent (onsen glow / sunrise alpenglow) to
+ * offset it — distinct from Tailand's teal/gold and Seoul's navy/red.
+ */
+:root {
+  /* surfaces */
+  --bg: #f3f6fa;
+  --paper: #ffffff;
+  --line: #dbe4ee;
+
+  /* text */
+  --ink: #1f2933;
+  --muted: #64748b;
+  --on-primary: #e6eef7; /* body text sitting on a --primary background */
+
+  /* brand */
+  --primary: #142c46;      /* hero gradient start, section headings, highlights bg */
+  --primary-2: #2b5d87;    /* hero gradient end, nav hover text */
+  --primary-soft: #e8eff7; /* hover background tint */
+  --accent: #e0a458;       /* eyebrow, borders, default day-no color, highlights heading */
+  --accent-2: #c1443c;     /* links, .chip.book, .map-link */
+  --on-accent-2: #fff;     /* text/icon color on top of an --accent-2 background */
+
+  /* type */
+  --font-heading: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+  --font-body: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+}
