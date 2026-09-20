@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>曼谷×清邁 行程地圖｜景點分佈與逐日路線</title>
+<style>
+  :root{
+    --deep-teal:#0f3d3e;
+    --teal:#1c5f5a;
+    --teal-soft:#e6efec;
+    --gold:#c9a15a;
+    --terracotta:#c1683f;
+    --cream:#faf6ee;
+    --paper:#fffdf8;
+    --ink:#26312e;
+    --muted:#6b7a72;
+    --line:#e3dcc9;
+    --water:#7fa8ae;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Serif TC","PingFang TC","Microsoft JhengHei",serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.75;
+  }
+  .top-nav{ background:var(--deep-teal); padding:14px 24px; }
+  .top-nav a{ color:var(--gold); text-decoration:none; font-size:14px; letter-spacing:.05em; }
+  .top-nav a:hover{ text-decoration:underline; }
+
+  header.hero{
+    background:linear-gradient(160deg,var(--deep-teal),var(--teal));
+    color:var(--cream);
+    padding:56px 24px 44px;
+    text-align:center;
+  }
+  header.hero .eyebrow{ letter-spacing:.3em; font-size:12px; color:var(--gold); text-transform:uppercase; }
+  header.hero h1{ font-size:clamp(26px,4vw,40px); margin:14px 0 10px; }
+  header.hero p{ color:#dce9e4; max-width:640px; margin:0 auto; font-size:15px; }
+
+  main{ max-width:1000px; margin:0 auto; padding:44px 20px 80px; }
+
+  .section-title{ display:flex; align-items:center; gap:14px; margin:56px 0 20px; }
+  .section-title:first-of-type{ margin-top:0; }
+  .section-title .line{ flex:1; height:1px; background:var(--line); }
+  .section-title h2{ margin:0; font-size:19px; color:var(--deep-teal); white-space:nowrap; }
+  .section-title .tag{
+    font-size:12px; letter-spacing:.05em; color:var(--gold);
+    border:1px solid var(--gold); border-radius:20px; padding:2px 12px; white-space:nowrap;
+  }
+  .section-desc{ color:var(--muted); font-size:14px; margin:-8px 0 22px; }
+
+  .map-panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 6px 18px rgba(15,61,62,0.06);
+  }
+  .map-panel svg{ display:block; width:100%; height:auto; }
+
+  .pin{ cursor:pointer; }
+  .pin use{ transition: transform .15s ease; transform-box: fill-box; transform-origin: bottom center; }
+  .pin:hover use, .pin:focus use{ transform: translateY(-3px); }
+  .pin-num{ font-family:"Noto Serif TC",serif; font-weight:700; pointer-events:none; }
+  .pin-label{ font-weight:700; fill:var(--ink); pointer-events:none; }
+  .pin .pin-label{ text-decoration: underline; text-decoration-color: var(--line); }
+  .map-sub{ font-size:9.5px; fill:var(--muted); }
+  .map-caption{ font-size:11px; fill:var(--muted); font-style:italic; }
+  .gate-label{ font-size:8px; fill:var(--muted); letter-spacing:.03em; }
+
+  .legend{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
+    gap:10px;
+    margin-top:18px;
+  }
+  .legend a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--cream);
+    font-size:14px;
+  }
+  .legend a:hover{ background:var(--teal-soft); border-color:var(--teal); }
+  .legend .num{
+    flex-shrink:0;
+    width:24px; height:24px;
+    border-radius:50%;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .legend .place{ display:flex; flex-direction:column; gap:1px; }
+  .legend .place b{ font-size:14px; }
+  .legend .place span{ font-size:12px; color:var(--muted); }
+
+  .note{
+    margin-top:16px;
+    padding:14px 18px;
+    border-left:3px solid var(--gold);
+    background:#fbf3e2;
+    font-size:13.5px;
+    color:#5a4a2a;
+    border-radius:0 8px 8px 0;
+  }
+
+  footer{ text-align:center; padding:30px 20px 50px; font-size:13px; color:var(--muted); }
+  footer a{ color:var(--teal); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="pin-shape" viewBox="0 0 32 40">
+      <path d="M16 0C7.16 0 0 7.12 0 15.9c0 11.2 16 24.1 16 24.1s16-12.9 16-24.1C32 7.12 24.84 0 16 0Z"/>
+      <circle cx="16" cy="15.6" r="9.4" fill="var(--paper)"/>
+    </symbol>
+    <pattern id="blockgrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="var(--line)" stroke-width="1"/>
+    </pattern>
+    <pattern id="watertex" width="30" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(3)">
+      <path d="M0 8 Q7.5 2 15 8 T30 8" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.3"/>
+    </pattern>
+    <pattern id="landtex" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L60 60 M60 0 L0 60" stroke="var(--gold)" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>
+
+<nav class="top-nav">
+  <a href="dm.html">&larr; 返回泰北自然與療癒行程 DM</a>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Bangkok × Chiang Mai · Route Map</div>
+  <h1>行程地圖：景點分佈與逐日路線</h1>
+  <p>先看曼谷與清邁的相對位置，再放大看兩地各景點怎麼分佈。地圖上的每個數字圖釘對應行程的第幾天，點下去（或點下方列表）就能直接跳到 DM 裡那一天的完整內容。位置與比例為手繪示意，實際導航請以 Google Maps 為準。</p>
+</header>
+
+<main>
+
+  <div class="section-title">
+    <h2>🧭 曼谷 × 清邁 相對位置</h2>
+    <span class="line"></span>
+    <span class="tag">直線距離約 700 公里・飛行約 1 小時</span>
+  </div>
+  <div class="section-desc">清邁在泰國北部山區，曼谷在中部平原、鄰近暹羅灣，兩地靠國內線往返：Day02 傍晚飛清邁，Day08 上午飛回曼谷。</div>
+
+  <div class="map-panel">
+    <svg viewBox="0 0 620 340" role="img" aria-label="曼谷與清邁相對位置示意圖">
+      <rect width="620" height="340" rx="14" fill="var(--cream)"/>
+      <rect width="620" height="340" rx="14" fill="url(#landtex)"/>
+
+      <!-- simplified landmass -->
+      <path d="M258 16 C224 10 196 34 208 66 C176 84 164 132 196 162
+               C182 202 202 246 252 268 C284 300 328 300 358 270
+               C400 250 420 208 400 168 C430 136 420 88 390 68
+               C400 30 360 8 330 18 C310 28 280 26 258 16 Z"
+            fill="var(--teal-soft)" opacity="0.65" stroke="var(--gold)" stroke-width="1.4" stroke-opacity="0.55"/>
+
+      <!-- mountain hachures near north -->
+      <g stroke="var(--muted)" stroke-width="1" opacity="0.4">
+        <line x1="238" y1="46" x2="248" y2="58"/>
+        <line x1="250" y1="42" x2="260" y2="56"/>
+        <line x1="262" y1="40" x2="272" y2="54"/>
+        <line x1="274" y1="44" x2="284" y2="58"/>
+        <line x1="220" y1="70" x2="230" y2="84"/>
+        <line x1="232" y1="66" x2="242" y2="80"/>
+      </g>
+      <text x="256" y="34" text-anchor="middle" class="map-sub">北部山區</text>
+
+      <!-- gulf of thailand hint -->
+      <path d="M370 292 Q 420 280 470 300 Q 500 314 480 336 L 360 336 Q 350 312 370 292 Z" fill="var(--water)" opacity="0.35"/>
+      <rect x="352" y="292" width="150" height="46" fill="url(#watertex)" opacity="0.5"/>
+      <text x="470" y="330" text-anchor="middle" class="map-sub">暹羅灣 Gulf of Thailand</text>
+
+      <!-- compass -->
+      <g transform="translate(52,52)">
+        <circle r="22" fill="var(--paper)" stroke="var(--line)" stroke-width="1"/>
+        <path d="M0 -15 L5 0 L0 15 L-5 0 Z" fill="var(--terracotta)"/>
+        <path d="M0 -15 L5 0 L0 0 Z" fill="var(--deep-teal)"/>
+        <text y="-27" text-anchor="middle" font-size="10" fill="var(--muted)">N</text>
+      </g>
+
+      <!-- flight route -->
+      <path d="M300 82 Q 350 175 340 250" fill="none" stroke="var(--terracotta)" stroke-width="2" stroke-dasharray="1 8" stroke-linecap="round"/>
+      <g transform="translate(326,178) rotate(72)" fill="var(--terracotta)">
+        <path d="M-11 0 L9 -5 L15 0 L9 5 Z"/>
+      </g>
+      <text x="372" y="172" font-size="12" fill="var(--terracotta)">Day02 去程</text>
+      <text x="372" y="186" font-size="12" fill="var(--terracotta)">Day08 回程</text>
+
+      <!-- Chiang Mai node -->
+      <circle cx="300" cy="82" r="10" fill="var(--teal)" stroke="var(--paper)" stroke-width="3"/>
+      <text x="300" y="54" text-anchor="middle" font-size="16" fill="var(--deep-teal)" font-weight="700">清邁 Chiang Mai</text>
+      <text x="300" y="108" text-anchor="middle" class="map-sub" font-size="12">Day02（傍晚）－ Day08（上午）</text>
+
+      <!-- Bangkok node -->
+      <circle cx="340" cy="250" r="10" fill="var(--deep-teal)" stroke="var(--paper)" stroke-width="3"/>
+      <text x="340" y="282" text-anchor="middle" font-size="16" fill="var(--deep-teal)" font-weight="700">曼谷 Bangkok</text>
+      <text x="340" y="222" text-anchor="middle" class="map-sub" font-size="12">Day01–02（上午）／Day08－09</text>
+
+      <!-- scale bar -->
+      <g transform="translate(480,60)">
+        <line x1="0" y1="0" x2="70" y2="0" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="70" y1="-4" x2="70" y2="4" stroke="var(--ink)" stroke-width="2"/>
+        <text x="35" y="-8" text-anchor="middle" class="map-sub">≈ 100 km（示意）</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-title">
+    <h2>🏯 清邁景點地圖</h2>
+    <span class="line"></span>
+    <span class="tag">Day02 晚－Day07</span>
+  </div>
+  <div class="section-desc">以古城護城河四方城為中心：寧曼在西邊、長康路夜市在東邊近平河、真心市集在北邊，Mae Kampong 與秘境瀑布則要往山區走比較遠。</div>
+
+  <div class="map-panel">
+    <svg viewBox="0 0 600 580" role="img" aria-label="清邁景點分佈示意圖">
+      <rect width="600" height="580" rx="14" fill="var(--paper)"/>
+      <rect x="6" y="6" width="588" height="568" rx="10" fill="none" stroke="var(--line)" stroke-width="1"/>
+      <rect width="600" height="580" rx="14" fill="url(#landtex)"/>
+
+      <!-- mountain range west (Doi Suthep) -->
+      <path d="M0 260 L50 190 L90 230 L130 160 L175 220 L210 200 L230 260 L0 300 Z" fill="var(--teal-soft)" opacity="0.85"/>
+      <path d="M0 300 L60 250 L110 285 L150 240 L200 280 L230 265 L235 320 L0 340 Z" fill="var(--teal-soft)" opacity="0.55"/>
+      <g stroke="var(--muted)" stroke-width="0.9" opacity="0.4">
+        <line x1="60" y1="210" x2="70" y2="225"/><line x1="75" y1="200" x2="85" y2="215"/>
+        <line x1="100" y1="215" x2="110" y2="228"/><line x1="145" y1="185" x2="155" y2="200"/>
+        <line x1="160" y1="205" x2="170" y2="218"/><line x1="190" y1="215" x2="200" y2="228"/>
+      </g>
+      <g fill="var(--teal)" opacity="0.5">
+        <circle cx="70" cy="245" r="2.5"/><circle cx="95" cy="260" r="2.5"/><circle cx="130" cy="250" r="2.5"/>
+        <circle cx="160" cy="270" r="2.5"/><circle cx="55" cy="270" r="2.5"/><circle cx="190" cy="255" r="2.5"/>
+      </g>
+      <text x="115" y="180" text-anchor="middle" class="map-sub">Doi Suthep 山區</text>
+
+      <!-- mountain range east (San Kamphaeng) -->
+      <path d="M430 420 L470 350 L505 390 L540 330 L580 380 L600 360 L600 460 L430 460 Z" fill="var(--teal-soft)" opacity="0.85"/>
+      <path d="M430 460 L480 410 L515 445 L555 400 L600 430 L600 480 L430 480 Z" fill="var(--teal-soft)" opacity="0.55"/>
+      <g stroke="var(--muted)" stroke-width="0.9" opacity="0.4">
+        <line x1="455" y1="370" x2="465" y2="385"/><line x1="480" y1="360" x2="490" y2="374"/>
+        <line x1="500" y1="380" x2="510" y2="393"/><line x1="530" y1="350" x2="540" y2="364"/>
+        <line x1="555" y1="370" x2="565" y2="383"/>
+      </g>
+      <g fill="var(--teal)" opacity="0.5">
+        <circle cx="460" cy="405" r="2.5"/><circle cx="490" cy="420" r="2.5"/><circle cx="520" cy="410" r="2.5"/>
+        <circle cx="550" cy="425" r="2.5"/><circle cx="575" cy="405" r="2.5"/>
+      </g>
+      <text x="500" y="335" text-anchor="middle" class="map-sub">San Kamphaeng 山區</text>
+
+      <!-- Ping river east side -->
+      <path d="M470 40 Q 486 160 476 290 Q 468 400 486 570" fill="none" stroke="var(--water)" stroke-width="20" stroke-linecap="round" opacity="0.55"/>
+      <path d="M470 40 Q 486 160 476 290 Q 468 400 486 570" fill="none" stroke="url(#watertex)" stroke-width="20" stroke-linecap="round" opacity="0.6"/>
+      <text x="500" y="70" class="map-sub">Ping River 平河</text>
+
+      <!-- ring road -->
+      <rect x="118" y="118" width="364" height="364" rx="80" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="1 7" opacity="0.45"/>
+      <text x="480" y="130" class="map-sub" text-anchor="end">Superhighway 11 外環道</text>
+
+      <!-- radiating roads (road bed + dashed centerline) -->
+      <g fill="none" stroke-linecap="round">
+        <path d="M352 300 Q 400 300 430 300" stroke="#cabf9e" stroke-width="7"/>
+        <path d="M352 300 Q 400 300 430 300" stroke="#fff" stroke-width="1.2" stroke-dasharray="4 5" opacity="0.8"/>
+
+        <path d="M300 248 Q 300 190 300 140" stroke="#cabf9e" stroke-width="7"/>
+        <path d="M300 248 Q 300 190 300 140" stroke="#fff" stroke-width="1.2" stroke-dasharray="4 5" opacity="0.8"/>
+
+        <path d="M352 340 Q 460 360 540 372" stroke="#cabf9e" stroke-width="6"/>
+        <path d="M352 340 Q 460 360 540 372" stroke="#fff" stroke-width="1.1" stroke-dasharray="4 5" opacity="0.8"/>
+
+        <path d="M248 280 Q 170 250 118 200" stroke="#cabf9e" stroke-width="6"/>
+        <path d="M248 280 Q 170 250 118 200" stroke="#fff" stroke-width="1.1" stroke-dasharray="4 5" opacity="0.8"/>
+
+        <path d="M270 248 Q 210 170 150 100" stroke="#cabf9e" stroke-width="6"/>
+        <path d="M270 248 Q 210 170 150 100" stroke="#fff" stroke-width="1.1" stroke-dasharray="4 5" opacity="0.8"/>
+
+        <path d="M248 320 Q 210 310 178 302" stroke="#cabf9e" stroke-width="6"/>
+        <path d="M248 320 Q 210 310 178 302" stroke="#fff" stroke-width="1.1" stroke-dasharray="4 5" opacity="0.8"/>
+      </g>
+
+      <!-- old city moat + block grid -->
+      <path d="M248 248 H352 V352 H248 Z M262 262 H338 V338 H262 Z" fill="var(--water)" fill-opacity="0.4" fill-rule="evenodd"/>
+      <rect x="262" y="262" width="76" height="76" fill="var(--cream)" stroke="var(--gold)" stroke-width="2"/>
+      <rect x="262" y="262" width="76" height="76" fill="url(#blockgrid)"/>
+      <text x="300" y="298" text-anchor="middle" font-size="12" fill="var(--gold)" font-weight="700">古城</text>
+      <text x="300" y="312" text-anchor="middle" font-size="9" fill="var(--muted)">Old City</text>
+      <!-- gates -->
+      <text x="300" y="240" text-anchor="middle" class="gate-label">Chang Phueak Gate 北</text>
+      <text x="300" y="368" text-anchor="middle" class="gate-label">Chiang Mai Gate 南</text>
+      <text x="360" y="303" class="gate-label">Tha Phae Gate 東</text>
+      <text x="240" y="303" text-anchor="end" class="gate-label">Suan Dok Gate 西</text>
+
+      <!-- pins -->
+      <a class="pin" href="dm.html#d1024" aria-label="Day02 長康路夜市">
+        <use href="#pin-shape" x="414" y="260" width="32" height="40" fill="var(--teal)"/>
+        <text x="430" y="277" text-anchor="middle" class="pin-num" font-size="12" fill="var(--teal)">02</text>
+        <text class="pin-label" x="430" y="314" text-anchor="middle" font-size="11">長康路夜市</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1025" aria-label="Day03 真心市集">
+        <use href="#pin-shape" x="284" y="80" width="32" height="40" fill="var(--gold)"/>
+        <text x="300" y="97" text-anchor="middle" class="pin-num" font-size="12" fill="var(--gold)">03</text>
+        <text class="pin-label" x="300" y="134" text-anchor="middle" font-size="11">真心市集</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1026" aria-label="Day04 美康邦古村">
+        <use href="#pin-shape" x="524" y="332" width="32" height="40" fill="var(--terracotta)"/>
+        <text x="540" y="349" text-anchor="middle" class="pin-num" font-size="12" fill="var(--terracotta)">04</text>
+        <text class="pin-label" x="540" y="386" text-anchor="middle" font-size="11">美康邦古村</text>
+        <text x="540" y="400" text-anchor="middle" class="map-sub">車程約 1.2hr</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1027" aria-label="Day05 帕拉寺與班康瓦藝術村">
+        <use href="#pin-shape" x="102" y="160" width="32" height="40" fill="var(--teal)"/>
+        <text x="118" y="177" text-anchor="middle" class="pin-num" font-size="12" fill="var(--teal)">05</text>
+        <text class="pin-label" x="118" y="214" text-anchor="middle" font-size="11">帕拉寺・班康瓦</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1028" aria-label="Day06 秘密瀑布與 ATV 探險">
+        <use href="#pin-shape" x="134" y="60" width="32" height="40" fill="var(--terracotta)"/>
+        <text x="150" y="77" text-anchor="middle" class="pin-num" font-size="12" fill="var(--terracotta)">06</text>
+        <text class="pin-label" x="150" y="114" text-anchor="middle" font-size="11">秘密瀑布・ATV</text>
+        <text x="150" y="128" text-anchor="middle" class="map-sub">北郊山區</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1029" aria-label="Day07 寧曼路">
+        <use href="#pin-shape" x="162" y="282" width="32" height="40" fill="var(--gold)"/>
+        <text x="178" y="299" text-anchor="middle" class="pin-num" font-size="12" fill="var(--gold)">07</text>
+        <text class="pin-label" x="178" y="336" text-anchor="middle" font-size="11">寧曼路 Nimman</text>
+      </a>
+
+      <!-- compass -->
+      <g transform="translate(48,48)">
+        <circle r="22" fill="var(--paper)" stroke="var(--line)" stroke-width="1"/>
+        <path d="M0 -15 L5 0 L0 15 L-5 0 Z" fill="var(--terracotta)"/>
+        <path d="M0 -15 L5 0 L0 0 Z" fill="var(--deep-teal)"/>
+        <text y="-27" text-anchor="middle" font-size="10" fill="var(--muted)">N</text>
+      </g>
+      <!-- scale bar -->
+      <g transform="translate(452,545)">
+        <line x1="0" y1="0" x2="60" y2="0" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="60" y1="-4" x2="60" y2="4" stroke="var(--ink)" stroke-width="2"/>
+        <text x="30" y="-8" text-anchor="middle" class="map-sub">≈ 2 km（示意）</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <a href="dm.html#d1024"><span class="num" style="background:var(--teal)">02</span><span class="place"><b>長康路夜市</b><span>Chiang Mai Night Bazaar</span></span></a>
+    <a href="dm.html#d1025"><span class="num" style="background:var(--gold)">03</span><span class="place"><b>真心市集</b><span>Jing Jai Market</span></span></a>
+    <a href="dm.html#d1026"><span class="num" style="background:var(--terracotta)">04</span><span class="place"><b>美康邦古村</b><span>Mae Kampong Village</span></span></a>
+    <a href="dm.html#d1027"><span class="num" style="background:var(--teal)">05</span><span class="place"><b>帕拉寺・班康瓦藝術村</b><span>Wat Pha Lat / Baan Kang Wat</span></span></a>
+    <a href="dm.html#d1028"><span class="num" style="background:var(--terracotta)">06</span><span class="place"><b>秘密瀑布・ATV 探險</b><span>Waterfall &amp; ATV Adventure</span></span></a>
+    <a href="dm.html#d1029"><span class="num" style="background:var(--gold)">07</span><span class="place"><b>寧曼路</b><span>Nimman Road</span></span></a>
+  </div>
+
+  <div class="section-title">
+    <h2>🏙️ 曼谷景點地圖</h2>
+    <span class="line"></span>
+    <span class="tag">Day01－02（上午）／Day08－09</span>
+  </div>
+  <div class="section-desc">以昭披耶河為軸線：市區飯店與 SPA 在河的東岸市中心，IconSiam 在河西岸、隔橋相望，機場則在市區東邊。</div>
+
+  <div class="map-panel">
+    <svg viewBox="0 0 600 380" role="img" aria-label="曼谷景點分佈示意圖">
+      <rect width="600" height="380" rx="14" fill="var(--paper)"/>
+      <rect x="6" y="6" width="588" height="368" rx="10" fill="none" stroke="var(--line)" stroke-width="1"/>
+      <rect width="600" height="380" rx="14" fill="url(#landtex)"/>
+
+      <!-- river -->
+      <path d="M100 10 Q 210 90 190 170 Q 170 240 130 260 Q 90 285 190 360" fill="none" stroke="var(--water)" stroke-width="34" stroke-linecap="round" opacity="0.55"/>
+      <path d="M100 10 Q 210 90 190 170 Q 170 240 130 260 Q 90 285 190 360" fill="none" stroke="url(#watertex)" stroke-width="34" stroke-linecap="round" opacity="0.6"/>
+      <text x="66" y="34" class="map-sub">Chao Phraya River 昭披耶河</text>
+
+      <!-- bridge across river near IconSiam -->
+      <g stroke="var(--muted)" stroke-width="2" opacity="0.6">
+        <line x1="120" y1="245" x2="230" y2="215"/>
+        <line x1="150" y1="255" x2="150" y2="238"/>
+        <line x1="190" y1="243" x2="190" y2="226"/>
+      </g>
+
+      <!-- road grid east bank (Sukhumvit-style) -->
+      <g stroke="var(--muted)" stroke-width="1" opacity="0.25">
+        <line x1="260" y1="0" x2="340" y2="380"/>
+        <line x1="320" y1="0" x2="400" y2="380"/>
+        <line x1="380" y1="0" x2="460" y2="380"/>
+        <line x1="440" y1="0" x2="520" y2="380"/>
+        <line x1="230" y1="80" x2="560" y2="30"/>
+        <line x1="220" y1="180" x2="580" y2="150"/>
+        <line x1="210" y1="280" x2="570" y2="260"/>
+      </g>
+
+      <!-- IconSiam building glyph -->
+      <g transform="translate(150,215)" fill="var(--muted)" opacity="0.55">
+        <rect x="-14" y="-30" width="28" height="30" rx="2"/>
+        <rect x="-9" y="-40" width="18" height="10" rx="1"/>
+      </g>
+
+      <!-- airport runway east -->
+      <g transform="translate(560,300)">
+        <rect x="-70" y="-6" width="90" height="12" rx="3" fill="var(--muted)" opacity="0.3" transform="rotate(-14)"/>
+        <g transform="rotate(-14) translate(4,0) scale(1.3)" fill="var(--deep-teal)">
+          <path d="M0 0 L16 -5 L22 0 L16 5 Z"/>
+        </g>
+      </g>
+      <text x="560" y="336" text-anchor="middle" class="map-sub">Suvarnabhumi 機場</text>
+
+      <!-- pins -->
+      <a class="pin" href="dm.html#d1023" aria-label="Day01 曼谷市區飯店抵達">
+        <use href="#pin-shape" x="314" y="90" width="32" height="40" fill="var(--deep-teal)"/>
+        <text x="330" y="107" text-anchor="middle" class="pin-num" font-size="12" fill="var(--deep-teal)">01</text>
+        <text class="pin-label" x="330" y="144" text-anchor="middle" font-size="11">市區飯店・抵達</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1030" aria-label="Day08 曼谷返回市區與頂級 SPA">
+        <use href="#pin-shape" x="364" y="160" width="32" height="40" fill="var(--deep-teal)"/>
+        <text x="380" y="177" text-anchor="middle" class="pin-num" font-size="12" fill="var(--deep-teal)">08</text>
+        <text class="pin-label" x="380" y="214" text-anchor="middle" font-size="11">市區・頂級 SPA</text>
+      </a>
+
+      <a class="pin" href="dm.html#d1031" aria-label="Day09 IconSiam 與機場返台">
+        <use href="#pin-shape" x="134" y="164" width="32" height="40" fill="var(--terracotta)"/>
+        <text x="150" y="181" text-anchor="middle" class="pin-num" font-size="12" fill="var(--terracotta)">09</text>
+        <text class="pin-label" x="150" y="203" text-anchor="middle" font-size="11">IconSiam</text>
+      </a>
+
+      <!-- compass -->
+      <g transform="translate(48,48)">
+        <circle r="22" fill="var(--paper)" stroke="var(--line)" stroke-width="1"/>
+        <path d="M0 -15 L5 0 L0 15 L-5 0 Z" fill="var(--terracotta)"/>
+        <path d="M0 -15 L5 0 L0 0 Z" fill="var(--deep-teal)"/>
+        <text y="-27" text-anchor="middle" font-size="10" fill="var(--muted)">N</text>
+      </g>
+      <!-- scale bar -->
+      <g transform="translate(452,345)">
+        <line x1="0" y1="0" x2="60" y2="0" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="0" y1="-4" x2="0" y2="4" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="60" y1="-4" x2="60" y2="4" stroke="var(--ink)" stroke-width="2"/>
+        <text x="30" y="-8" text-anchor="middle" class="map-sub">≈ 3 km（示意）</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <a href="dm.html#d1023"><span class="num" style="background:var(--deep-teal)">01</span><span class="place"><b>市區飯店・抵達</b><span>Bangkok arrival</span></span></a>
+    <a href="dm.html#d1030"><span class="num" style="background:var(--deep-teal)">08</span><span class="place"><b>市區・頂級 SPA</b><span>Divana / Let's Relax</span></span></a>
+    <a href="dm.html#d1031"><span class="num" style="background:var(--terracotta)">09</span><span class="place"><b>IconSiam・機場返台</b><span>Riverside shopping → Suvarnabhumi</span></span></a>
+  </div>
+
+  <div class="note">
+    💡 這張圖是行程動線的手繪示意方位，不是精確比例地圖。真正導航／叫車請直接在 Google Maps 或 Grab App 搜尋景點英文名稱；卡片內文（<a href="dm.html">完整行程 DM</a>）也附有各景點的 Google Maps 連結可以直接點開。
+  </div>
+
+</main>
+
+<footer>
+  <a href="dm.html">&larr; 返回完整行程總覽</a>
+</footer>
+
+</body>
+</html>

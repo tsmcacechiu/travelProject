@@ -1,0 +1,29 @@
+/*
+ * Turkey-202704 theme: deep İznik-tile teal-blue (Bosphorus water, mosque
+ * mosaics) with warm gold (Hagia Sophia domes, sunset over the strait) and a
+ * terracotta accent (Cappadocia's rose valley rock) — distinct from
+ * Tailand's teal/gold, Seoul's navy/red, and Hakuba's alpine blue/amber.
+ */
+:root {
+  /* surfaces */
+  --bg: #f7f0e1;
+  --paper: #fffbf1;
+  --line: #e6dab8;
+
+  /* text */
+  --ink: #2a2118;
+  --muted: #7c6f57;
+  --on-primary: #e6f1f0; /* body text sitting on a --primary background */
+
+  /* brand */
+  --primary: #0c3b4f;      /* hero gradient start, section headings, highlights bg */
+  --primary-2: #1c7a8c;    /* hero gradient end, nav hover text */
+  --primary-soft: #e3eeee; /* hover background tint */
+  --accent: #d9a441;       /* eyebrow, borders, default day-no color, highlights heading */
+  --accent-2: #bd5330;     /* links, .chip.book, .map-link */
+  --on-accent-2: #fff;     /* text/icon color on top of an --accent-2 background */
+
+  /* type */
+  --font-heading: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+  --font-body: 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+}
